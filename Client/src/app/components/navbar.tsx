@@ -29,6 +29,11 @@ export default function Navbar() { // using list items and unordered list for be
                         Gallery
                     </Link>
                 </li>
+                <li>
+                    <Link href="/login">
+                        Login
+                    </Link>
+                </li>
             </ul>
         </nav>
     );
