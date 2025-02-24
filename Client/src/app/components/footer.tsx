@@ -3,6 +3,6 @@ import React from 'react';
 // placeholder footer component for the pages 
 export default function Footer () {
     return(
-        <h1>footer component</h1>
+        <h1 className="">footer component</h1>
     );
 }
