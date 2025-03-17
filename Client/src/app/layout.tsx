@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "3D Western",
   description: "Western University's Official 3D Printing Club",
-  keywords: ["3D Printing", "Western University", "3D Western"],
+  keywords: ["3D Printing", "Western University", "3D Western", "Engineering", "Western Printing Club"],
   creator: "3D Western Devs",
   publisher: "3D Western",
   robots: {
@@ -39,6 +39,7 @@ export const metadata: Metadata = {
   },
 };
 
+// TODO: Configure Tailwind for background color theme and styles!  
 export default function RootLayout({
   children,
 }: Readonly<{
