@@ -1,9 +1,9 @@
-import React from 'react';
+import LoginForm from '.././components/loginform';
 
 export default function Login() { // login page for auth 
     return (
-        <div>
-            <h1>Login</h1>
+        <div className="mt-10">
+            <LoginForm />
         </div>
     );
 }

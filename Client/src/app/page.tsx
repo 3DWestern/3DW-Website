@@ -1,4 +1,7 @@
- 
+import Images from './components/images';
+import Landing from './components/landing';
+import { useState, useEffect } from 'react';
+
 export default function Home() {
   
   const [users, setUsers] = useState([]);
@@ -65,8 +68,25 @@ export default function Home() {
     .then(data => setCost(Math.round(data[0].totalCost*100)/100))
   }, []);
 
+    const images = [
+    {
+        src: "/Image2.png",
+        alt: "Instagram image",
+      },
+    { 
+        src: "/Image3.png",
+        alt: "Linkedin image",
+      },
+    {
+        src: "/Image4.png",
+        alt: "Image of mail",
+      },
+    { 
+        src: "/Image5.png",
+        alt: "Image of Send",
+      }, 
+    ];
   return (
-    <>
     <div className="py-10 px-10">
       <div className="text-3xl">USERS:</div><br/>
       {users}
@@ -80,7 +100,12 @@ export default function Home() {
 
       <div className="text-3xl">ACCOUNTING:</div><br/>
       <div className="px-5">Total cost of jobs in-queue: ${cost}</div>
+    <div className="overflow-hidden flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+     <main>
+      <Landing />
+      <Images images={images}/> 
+     </main> 
     </div>
-    </>
+    </div>
   );
 }

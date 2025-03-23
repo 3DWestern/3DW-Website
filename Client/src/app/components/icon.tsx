@@ -6,7 +6,7 @@ interface IconProps {
     alt: string;
 }
 
-// NOTE: Ignore the Image suggestion, since the image is svg.
+// NOTE: Ignore the Image optimization suggestion, since the image is svg.
 //TODO: adjust image size and add responsiveness for images 
 export default function Icon({ link, src, alt }: IconProps) {
     return (
