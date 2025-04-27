@@ -34,7 +34,19 @@ app.get("/users", async (req, res) => {
   const query = {}; // to get all users
   const results = await users.find(query).toArray(); // search database
 
-  res.send(results).status(200);
+  res.send(results)
+})
+
+app.get("/jobs", async (req, res) => {
+  const printJobs = database.collection('print_jobs');
+  const results = await printJobs.find({}).toArray();
+  res.send(results)
+})
+
+app.get("/cost", async (req, res) => {
+  const printJobs = database.collection('print_jobs');
+  const results = await printJobs.aggregate([{$group: {_id: null, totalCost: {$sum: "$purchase_info.cost"}}}]).toArray()
+  res.send(results);
 })
 
 app.use(cookieParser());
