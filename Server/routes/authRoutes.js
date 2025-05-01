@@ -4,16 +4,16 @@ const {test, getTest, register, login, returnAccess, verifyJWT} = require('../co
 
 const router = express.Router();
 
-router.post('/test', test);
-router.get('/gettest', getTest);
+//router.post('/test', test);
+//router.get('/gettest', getTest);
 
-router.post('/register', register);
+//router.post('/register', register);
 
-router.post('/login', login);
+//router.post('/login', login);
 
-router.post('/returnAccessToken', returnAccess);
+//router.post('/returnAccessToken', returnAccess);
 
-router.post('/isUserAuth', verifyJWT);
+//router.post('/isUserAuth', verifyJWT);
 
 module.exports = router;
 

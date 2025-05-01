@@ -5,6 +5,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes.js");
+const accountRoutes = require("./routes/accountRoutes.js");
 const cookieParser = require("cookie-parser");
 const { MongoClient } = require("mongodb");
 
@@ -53,7 +54,8 @@ app.use(cookieParser());
 
 app.use(bodyParser.json())
 
-app.use("/api/auth", authRoutes);
+//app.use("/api/auth", authRoutes);
+app.use("/api/account", accountRoutes);
 
 
 
