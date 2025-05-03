@@ -1,10 +1,25 @@
+const {addDBCredentials} = require('../helpers/auth.js');
+
+// Create a new user in the database
 const register = async(req, res) => {
-    const{inputInfo} = req.body;
-    try{
-        //res.status(200).json({ message: "Hello World!" });
-    } catch (error) {
-        //res.status(500).json({ message: `Internal Server Error: ${error.message}`})
-    }
+    const{studentNumber, email, password} = req.body;
+    const{first, last} = req.body.name;
+
+    // Check if all required fields have been sent
+    if (!studentNumber || !email || !password || !first || !last)
+        res.status(400).json({message: "Need a student number, student email, and password in order to create new account"})
+
+    // Validate credentials:
+    // Student number is 9 digit number beginning with 251
+    if (typeof studentNumber !== 'number' || studentNumber < 251000000 || studentNumber > 251999999) 
+        res.status(400).json({message: "Invalid student number"})
+    // Email is of format [name][optional numbers]@uwo.ca
+    if (!email.match(/^[a-z]+[0-9]*@uwo.ca$/))
+        res.status(400).json({message: "Invalid student email format"})
+
+    // Add user information to database
+    await addDBCredentials(studentNumber, email, password, first, last)
+    .then(res.status(200).json({message: "Credentials successfully added to database"}))
 }
 
 const login = async(req, res) => {

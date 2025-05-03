@@ -1,5 +1,10 @@
 //const pool = require('../db.js');
 //const jwt = require('jsonwebtoken');
+const bcrypt = require("bcrypt");
+const { MongoClient } = require("mongodb");
+
+const client = new MongoClient(process.env.ATLAS_URI);
+const database = client.db(process.env.DB);
 
 //Query the database for the credentials
 //Return as a boolean
@@ -16,15 +21,30 @@ const queryDBCredentials = async (username, password) => {
 }
 
 //Add the credentials to the database
-//Remember to hash the password
-const addDBCredentials = async (username, password) => {
-    try{
-        //Something added here to add the credentials to the database
-        console.log('Added to the database');
-    }
-    catch (error) {
-        console.log('Error adding to the database');
-    }
+const addDBCredentials = async (studentNumber, email, password, firstName, lastName) => {
+
+    // First hash the password, then add to database
+    bcrypt.hash(password, 12, (err, hash) => { 
+
+        // Connect to 'users' cluster
+        const users = database.collection('users');
+
+        // Create object for new user, according to database schema
+        const newUser = {
+            _id: { student_id: studentNumber },
+            email: email,
+            name: {
+                first: firstName,
+                last: lastName
+            },
+            password_hash: hash,
+            account_created: new Date().toISOString(),
+            membership: "MEMBER" // TODO: are we going to allow non-members to sign up?
+        }
+
+        // Add new user to database
+        users.insertOne(newUser)
+    })
 }
 
 const generateRefreshToken = (username) => {
