@@ -9,15 +9,17 @@ const database = client.db(process.env.DB);
 //Query the database for the credentials
 //Return as a boolean
 const queryDBCredentials = async (username, password) => {
-    try{
-
-        console.log('Queried the database');
-        return true;
-    }
-    catch (error) {
-        console.log('Error querying the database');
-        return false;
-    }
+    
+    // Query database
+    const users = database.collection('users'); // Connect to 'users' cluster
+    const query = { _id: { student_id: username } } // Search for user with that ID
+    const result = await users.findOne(query) // Send query to database
+    
+    // If no such user with that student ID exists, return false
+    if (!result) return false;
+    
+    // Compare password (hash)
+    return await bcrypt.compare(password, result.password_hash)
 }
 
 //Add the credentials to the database

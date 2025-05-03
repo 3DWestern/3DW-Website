@@ -1,4 +1,4 @@
-const {addDBCredentials} = require('../helpers/auth.js');
+const {addDBCredentials, queryDBCredentials} = require('../helpers/auth.js');
 
 // Create a new user in the database
 const register = async(req, res) => {
@@ -23,13 +23,23 @@ const register = async(req, res) => {
 }
 
 const login = async(req, res) => {
-    const{inputInfo} = req.body;
-    try{
-        //console.log(inputInfo);
-        //res.status(200).json({ message: "Hello World!" });
-    } catch (error) {
-        //res.status(500).json({ message: `Internal Server Error: ${error.message}`})
-    }
+    const {studentNumber, password} = req.body;
+
+    // Check if credentials have been provided
+    if (!password || !studentNumber)
+        res.status(400).json({message: "Missing credentials"})
+
+    // Check if database has mathcing student number and password [hash]
+    await queryDBCredentials(studentNumber, password)
+    .then((successful) => {
+        // If credentials were successful or not
+        if (successful)
+            res.status(200).json({message: "Logging in"})
+        else
+            res.status(400).json({message: "Username or password incorrect"})
+    })
+
+
 }
 
 const logout = async(req, res) => {
