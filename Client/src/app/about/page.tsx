@@ -1,22 +1,12 @@
 import React from 'react';
 import Execs from '.././components/execs'
 
+// Will add CUBO in the very near future.
 export default function About () {
-
-    const execList = [
-        {
-            name: "Troy",
-            title: "Head of projects",
-            src: "/amongus.png",
-            alt: "Bombidilo crocidilo",
-        },
-    ];
-
-
-
     return (
-        <div>
-            <Execs execs={execList}/>
+        <div className=" mt-10 flex flex-wrap flex-col justify-between items-center">
+            <h1 className="text-6xl my-auto mx-auto text-center">MEET THE TEAM</h1>
+            <Execs />
         </div>
     );
 }

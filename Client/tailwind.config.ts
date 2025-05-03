@@ -1,11 +1,12 @@
 import type { Config } from "tailwindcss";
 
+/* TODO: configure dark and light theme modes! */
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  ], // add dark mode, light mode, default here 
   theme: {
     extend: {
       animation: {

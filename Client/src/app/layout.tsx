@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Jersey_25 } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar";
-import Footer from "./components/footer";
 import type { Viewport } from "next";
 
 // font definition 
@@ -39,22 +38,17 @@ export const metadata: Metadata = {
   },
 };
 
-// TODO: Configure Tailwind for background color theme and styles!  
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en">
-      <body
-        className={`${jersey_25.className} flex flex-col min-h-screen`}
-      >
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+      <body className={`${jersey_25.className} flex flex-col min-h-screen`}>
+           <Navbar />
+            {children}
       </body>
     </html>
   );

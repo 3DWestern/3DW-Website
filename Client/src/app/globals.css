@@ -7,7 +7,6 @@
   --foreground: #171717;
 }
 
-/*TODO: configure default background color and themes */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

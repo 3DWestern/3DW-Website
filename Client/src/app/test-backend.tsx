@@ -1,3 +1,5 @@
+  import { useState, useEffect } from 'react';
+
   export default function Test () {
     const [users, setUsers] = useState([]);
     const [printJobs, setPrintJobs] = useState([]);
@@ -18,7 +20,7 @@
             account_created: string,
             membership: string
         }) => 
-            <div className="px-5">
+            <div className="px-5" key={user._id.student_id}>
             <div className="text-xl">{user.name.first} {user.name.last}</div>
             <ul>
                 <li className="px-5">- Student number: {user._id.student_id}</li>
@@ -43,7 +45,7 @@
             order_placed: string
             purchase_info: {cost: number}
         }) =>
-            <div className="px-5">
+            <div className="px-5" key={`${job._id.student_id} - ${job._id.order_id}`}>
             <div className="text-xl">Print Job - {job._id.student_id} #{job._id.order_id+1}</div>
             <ul>
                 <li className="px-5">- Order placed: {job.order_placed.substring(0, 10)}</li>

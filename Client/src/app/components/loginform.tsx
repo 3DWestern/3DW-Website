@@ -1,17 +1,10 @@
 "use client";
-/* import { useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link'; */
-// import { error } from 'console'; // not used 
-import ComingSoon from ".././components/comingsoon";
-
+import Link from 'next/link'; 
 
 export default function LoginForm () {
-    return (
-        <ComingSoon />
-    );
-
-/*  Commented out code for login 
+    
     const [account, setAccount] = useState("");
     const [password, setPassWord] = useState("");
     const [error, setError] = useState(""); // error handling 
@@ -47,9 +40,9 @@ export default function LoginForm () {
     // TODO: Add API route to handle login (+middleware?) and auth logic 
     return (
         <div className="mx-auto flex flex-col justify-start items-center h-[30rem] bg-white rounded-lg w-96 my-20">
-            <div className="relative w-96 bg-red-700 flex flex-row justify-center items-center mx-auto my-8">
+            <div className="relative w-96 flex flex-row justify-center items-center mx-auto my-8">
             <h1 className="text-black text-5xl font-bold">LOGIN</h1>
-            <h1 className="absolute right-0 mr-10">Test</h1>
+            <h1 className="absolute right-0 mr-10">Q</h1>
             </div>
             <form className="flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
                 
@@ -74,5 +67,5 @@ export default function LoginForm () {
             {error && <p className="text-md text-red-500">{error}</p>} 
             <Link href="/signup" className="underline text-black mb-2 text-lg">Sign up</Link>
         </div>
-    ); */
+    ); 
 }

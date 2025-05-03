@@ -2,10 +2,8 @@ import React from 'react';
 import Image from 'next/image'; 
 import ShineBorder from './shineborder';
 
-
-// chore: fix the shine border; why does it not work?
-// NOTE: Ignore the img optimization suggestion, since Image does not work on gifs.
-export default function ComingSoon() {
+// A temporary message component for incoming changes. NOTE: Ignore the img optimization suggestion, since Image does not work on gifs.
+export default function Message () {
     return (
         <div className="relative overflow-hidden mx-auto my-10 bg-white rounded-lg w-1/2 h-[25rem] md:h-[20rem]">
             <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />

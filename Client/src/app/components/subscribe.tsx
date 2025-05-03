@@ -29,9 +29,7 @@ export default function Subscribe() {
         }
     };
 
-    // TODO: add flex for inline block button, adjust image ! 
     // NOTE: Ignore img warning, Image does not optimize svg 
-    // TODO: add interactivity for input form button !  
     return (
         <form onSubmit={handleInput} className="flex flex-row items-center justify-center gap-x-1">
             <input type="email" placeholder="Enter your email" 
