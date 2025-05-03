@@ -50,6 +50,7 @@ const login = async(req, res) => {
         else
             res.status(400).json({message: "Username or password incorrect"})
     })
+    .catch((error) => { res.status(500).json({message: `Server Error: ${error}`}) })
 
 
 }
