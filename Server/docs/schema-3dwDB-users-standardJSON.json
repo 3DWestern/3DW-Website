@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "_id",
+    "account_created",
+    "email",
+    "membership",
+    "name",
+    "password_hash"
+  ],
+  "properties": {
+    "_id": {
+      "type": "object",
+      "required": [
+        "student_id"
+      ],
+      "properties": {
+        "student_id": {
+          "type": "integer"
+        }
+      }
+    },
+    "account_created": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "membership": {
+      "type": "string"
+    },
+    "name": {
+      "type": "object",
+      "required": [
+        "first",
+        "last"
+      ],
+      "properties": {
+        "first": {
+          "type": "string"
+        },
+        "last": {
+          "type": "string"
+        }
+      }
+    },
+    "password_hash": {
+      "type": "string"
+    }
+  },
+  "$defs": {}
+}
