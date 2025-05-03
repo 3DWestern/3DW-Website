@@ -9,19 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "next": "15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
-=======
     "@tabler/icons-react": "^3.31.0",
     "clsx": "^2.1.1",
     "motion": "^12.5.0",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.0.2"
->>>>>>> 88d11b9 (added landing page component and  basic image gallery component)
+    "tailwind-merge": "^3.0.2",
+    "tailwind-variants": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

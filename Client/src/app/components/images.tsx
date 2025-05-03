@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
@@ -12,10 +12,12 @@ type Image = {
 // set autoplay to true for shuffling between images automatically 
 export default function Images({ images, autoplay = true } : { images: Image[], autoplay?: boolean }) {
     const [active, setActive] = useState(0);
+    const [rotateValues, setRotateValues] = useState<number[]>([]);
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         setActive((prev) => (prev + 1) % images.length);
-    };
+    }, [images.length])
+
 
     const handlePrev = () => {
         setActive((prev) => (prev - 1 + images.length) % images.length);
@@ -25,17 +27,21 @@ export default function Images({ images, autoplay = true } : { images: Image[], 
         return index === active; 
     }
 
-    // this is not needed if autoplay is not set to true 
+
+    useEffect(() => {
+        const newRotateValues = images.map(() => Math.floor(Math.random() * 21) - 10);
+        setRotateValues(newRotateValues);
+    }, [images])
+
+    // Auto play images; this is not needed if autoplay is not set to true 
     useEffect(() => {
         if (autoplay) {
             const interval = setInterval(handleNext, 5000);
             return () => clearInterval(interval);
         }
-    });
+    }, [autoplay, handleNext]);
+    
 
-    const randomRotateY = () => {
-        return Math.floor(Math.random() * 21) - 10; 
-    }; 
 
     return (
         <div className="flex flex-col items-center justify-center relative w-100 gap-y-1">
@@ -49,12 +55,12 @@ export default function Images({ images, autoplay = true } : { images: Image[], 
                         opacity: 0,
                         scale: 0.9,
                         z: -100,
-                        rotate: randomRotateY(),
+                        rotate: rotateValues[index] || 0,
                     }}
                     animate={{
                         opacity: isActive(index)? 1 : 0.7,
                         scale: isActive(index)? 1 : 0.95,
-                        rotate: isActive(index)? 0 : randomRotateY(),
+                        rotate: isActive(index)? 0 : rotateValues[index] || 0,
                         z: isActive(index) ? 0 : -100,
                         zIndex: isActive(index) ? 40 : images.length + 2 - index,
                         y: isActive(index)? [0, -80, 0]: 0, 
@@ -63,7 +69,7 @@ export default function Images({ images, autoplay = true } : { images: Image[], 
                         opacity: 0,
                         scale: 0.9,
                         z: 100,
-                        rotate: randomRotateY(),
+                        rotate: rotateValues[index] || 0,
                     }}
                     transition={{
                         duration: 0.4,

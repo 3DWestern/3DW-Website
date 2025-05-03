@@ -11,14 +11,6 @@ export default function LoginForm () {
         <ComingSoon />
     );
 
-
-
-
-
-
-
-
-
 /*  Commented out code for login 
     const [account, setAccount] = useState("");
     const [password, setPassWord] = useState("");

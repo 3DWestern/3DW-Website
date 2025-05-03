@@ -1,20 +1,31 @@
 import React from 'react';
 import Image from 'next/image'; 
+import ShineBorder from './shineborder';
 
-// TODO: Edit this 
+
+// chore: fix the shine border; why does it not work?
+// NOTE: Ignore the img optimization suggestion, since Image does not work on gifs.
 export default function ComingSoon() {
     return (
-        <div className="mx-auto my-auto flex flex-row items-center justify-center h-[12rem] md:h-[14rem]">
-            <div className="z-[-100] rotate-45">
-                <Image 
-                src="/amongus.png" 
-                alt="Amongus" 
-                width={50}
-                height={50}/>
+        <div className="relative overflow-hidden mx-auto my-10 bg-white rounded-lg w-1/2 h-[25rem] md:h-[20rem]">
+            <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
+            <Image 
+            src="/amongus.png" 
+            alt="Amongus" 
+            width={50}
+            height={80}
+            className="z-[100] rotate-45" />
+        <div className="text-black text-center mx-auto my-auto flex flex-col justify-center items-center">
+            <div className="my-2">
+            <h1 className="text-2xl md:text-3xl">Print dashboard coming soon!!!
+            <img src="/3d-printer-intensifies.gif" alt="3D printer gif" className="inline-block h-5 w-5 md:h-8 md:w-8 ml-2"/>
+            </h1>
             </div>
-            <div className=" bg-white/50 p-4 rounded-2xl"> {/* header */}
-                <h1 className="text-2xl">Coming Soon!</h1>
+            <div className="mx-auto p-3">
+            <p className="text-sm md:text-lg sm:text-md">We&rsquo;re currently buidling a print dashboard for members to upload and manage print requests.
+                Not quite done yet, but we can&rsquo;t wait to share it with you soon. Thank you for your patience!</p>
             </div>
+        </div>
         </div>
     );
 }
