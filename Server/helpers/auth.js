@@ -10,10 +10,10 @@ const NUM_OF_SALT_ROUNDS = 12; // more salting ==> more secure
 
 //Query the database for the credentials
 //Return as a boolean
-const queryDBCredentials = async (username, password) => {
+const queryDBCredentials = async (username, password, collection) => {
     
     // Query database
-    const users = database.collection('users'); // Connect to 'users' cluster
+    const users = database.collection(collection); // Connect to 'users' cluster
     const query = { _id: { student_id: username } } // Search for user with that ID
     const result = await users.findOne(query) // Send query to database
     
@@ -27,13 +27,13 @@ const queryDBCredentials = async (username, password) => {
 // Add the credentials to the database
 // Returns true if user successfully added, returns false if user with student id already exists
 // Throws error if anything else happens
-const addDBCredentials = async (studentNumber, email, password, firstName, lastName) => {
+const addDBCredentials = async (studentNumber, email, password, firstName, lastName, collection) => {
 
     // Hash the password
     let hash = await bcrypt.hash(password, NUM_OF_SALT_ROUNDS)
     
     // Connect to cluster and prepare information
-    const users = database.collection('users');
+    const users = database.collection(collection);
     const newUser = {
         _id: { student_id: studentNumber },
         email: email,

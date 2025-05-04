@@ -1,12 +1,12 @@
 const {addDBCredentials, queryDBCredentials} = require('../helpers/auth.js');
 
-// Create a new user in the database
+// Create a new admin user in the database
 // - TODO: are we going to assure email uniqueness?
 const register = async(req, res) => {
     const{studentNumber, email, password} = req.body;
     const{first, last} = req.body.name;
 
-    // Check if all required fields have been se
+    // Check if all required fields have been sent
     if (!studentNumber || !email || !password || !first || !last) {
         res.status(400).json({message: "Need a student number, student email, and password in order to create new account"})
         return
@@ -25,7 +25,7 @@ const register = async(req, res) => {
     }
 
     // Add user information to database
-    await addDBCredentials(studentNumber, email, password, first, last, 'users')
+    await addDBCredentials(studentNumber, email, password, first, last, 'admin_users')
     .then((success) => {
         // Check if user was successfully added to database or not
         if (success) res.status(200).json({message: "User added to database"})
@@ -42,7 +42,7 @@ const login = async(req, res) => {
         res.status(400).json({message: "Missing credentials"})
 
     // Check if database has mathcing student number and password [hash]
-    await queryDBCredentials(studentNumber, password, 'users')
+    await queryDBCredentials(studentNumber, password, 'admin_users')
     .then((successful) => {
         // If credentials were successful or not
         if (successful)
@@ -55,18 +55,7 @@ const login = async(req, res) => {
 
 }
 
-const logout = async(req, res) => {
-    const{inputInfo} = req.body;
-    try{
-        //console.log(inputInfo);
-        //res.status(200).json({ message: "Hello World!" });
-    } catch (error) {
-        //res.status(500).json({ message: `Internal Server Error: ${error.message}`})
-    }
-}
-
 module.exports = {
     register,
-    login,
-    logout
+    login
 }
