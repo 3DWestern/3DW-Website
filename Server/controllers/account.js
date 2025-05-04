@@ -6,7 +6,7 @@ const register = async(req, res) => {
     const{studentNumber, email, password} = req.body;
     const{first, last} = req.body.name;
 
-    // Check if all required fields have been sent
+    // Check if all required fields have been se
     if (!studentNumber || !email || !password || !first || !last) {
         res.status(400).json({message: "Need a student number, student email, and password in order to create new account"})
         return
@@ -25,7 +25,7 @@ const register = async(req, res) => {
     }
 
     // Add user information to database
-    await addDBCredentials(studentNumber, email, password, first, last)
+    await addDBCredentials(studentNumber, email, password, first, last, 'users')
     .then((success) => {
         // Check if user was successfully added to database or not
         if (success) { 
@@ -56,7 +56,7 @@ const login = async(req, res) => {
         res.status(400).json({message: "Missing credentials"})
 
     // Check if database has mathcing student number and password [hash]
-    await queryDBCredentials(studentNumber, password)
+    await queryDBCredentials(studentNumber, password, 'users')
     .then((successful) => {
         // If credentials were successful or not
         if (successful) {
