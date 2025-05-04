@@ -42,7 +42,7 @@ const register = async(req, res) => {
             // Return response
             res.status(200).json({message: "User added to database", accessToken})
         }
-        else res.status(400).json({message: `User with student ID ${studentNumber} already exists`})
+            else res.status(400).json({message: `User with same student number and/or email already exists`})
     })
     .catch((error) => { res.status(500).json({message: `Server Error: ${error}`}) })
 }

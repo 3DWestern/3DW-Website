@@ -35,12 +35,12 @@ const addDBCredentials = async (studentNumber, email, password, firstName, lastN
     // Connect to cluster and prepare information
     const users = database.collection(collection);
     const newUser = {
-        _id: { student_id: studentNumber },
+        student_number: studentNumber,
         email: email,
         name: { first: firstName, last: lastName},
         password_hash: hash,
         account_created: new Date().toISOString(),
-        membership: "MEMBER" // TODO: are we going to allow non-members to sign up?
+        membership: collection==="admin_users" ? "ADMIN" : "MEMBER" // TODO: are we going to allow non-members to sign up?
     }
     
     // Add to database
