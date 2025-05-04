@@ -1,4 +1,4 @@
-const {addDBCredentials, queryDBCredentials} = require('../helpers/auth.js');
+const {addDBCredentials, queryDBCredentials, generateRefreshToken, generateAccessToken} = require('../helpers/auth.js');
 
 // Create a new user in the database
 // - TODO: are we going to assure email uniqueness?
@@ -28,7 +28,21 @@ const register = async(req, res) => {
     await addDBCredentials(studentNumber, email, password, first, last)
     .then((success) => {
         // Check if user was successfully added to database or not
-        if (success) res.status(200).json({message: "User added to database"})
+        if (success) { 
+            // Generate access and refresh tokens
+            const accessToken = generateAccessToken(studentNumber);
+            const refreshToken = generateRefreshToken(studentNumber);
+
+            res.cookie('refreshToken', refreshToken, { //The name of the token should be sent under 'refreshToken' in the frontend
+                httpOnly: true,
+                sameSite: 'None', 
+                secure: true, 
+                maxAge: 1000 * 60 * 60 * 24 * 3 // 1000 ms x 60 s * 60 m * 24 hr * 3d
+            });
+
+            // Return response
+            res.status(200).json({message: "User added to database", accessToken})
+        }
         else res.status(400).json({message: `User with student ID ${studentNumber} already exists`})
     })
     .catch((error) => { res.status(500).json({message: `Server Error: ${error}`}) })
@@ -45,10 +59,24 @@ const login = async(req, res) => {
     await queryDBCredentials(studentNumber, password)
     .then((successful) => {
         // If credentials were successful or not
-        if (successful)
-            res.status(200).json({message: "Logging in"})
-        else
+        if (successful) {
+            // Generate access and refresh tokens
+            const accessToken = generateAccessToken(studentNumber);
+            const refreshToken = generateRefreshToken(studentNumber);
+
+            res.cookie('refreshToken', refreshToken, { //The name of the token should be sent under 'refreshToken' in the frontend
+                httpOnly: true,
+                sameSite: 'None', 
+                secure: true, 
+                maxAge: 1000 * 60 * 60 * 24 * 3 // 1000 ms x 60 s * 60 m * 24 hr * 3d
+            });
+
+            // Returning response
+            res.status(200).json({message: "Logging in", accessToken})
+        }
+        else {
             res.status(400).json({message: "Username or password incorrect"})
+        }
     })
     .catch((error) => { res.status(500).json({message: `Server Error: ${error}`}) })
 
