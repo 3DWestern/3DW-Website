@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "_id",
+    "cost",
+    "order_completed",
+    "order_placed"
+  ],
+  "properties": {
+    "_id": {
+      "type": "object",
+      "required": [
+        "order_id",
+        "student_id"
+      ],
+      "properties": {
+        "order_id": {
+          "type": "integer"
+        },
+        "student_id": {
+          "type": "integer"
+        }
+      }
+    },
+    "cost": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "$ref": "#/$defs/Double"
+        }
+      ]
+    },
+    "label": {
+      "type": "string"
+    },
+    "order_completed": {
+      "$ref": "#/$defs/Date"
+    },
+    "order_placed": {
+      "$ref": "#/$defs/Date"
+    }
+  },
+  "$defs": {
+    "Double": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$numberDouble": {
+              "enum": [
+                "Infinity",
+                "-Infinity",
+                "NaN"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Date": {
+      "type": "object",
+      "properties": {
+        "$date": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "$date"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

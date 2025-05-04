@@ -11,7 +11,7 @@ const { MongoClient } = require("mongodb");
 
 const app = express();
 
-// Connect to database
+// Connect to database (temporary routes for demonstration)
 const client = new MongoClient(process.env.ATLAS_URI);
 const database = client.db(process.env.DB);
 

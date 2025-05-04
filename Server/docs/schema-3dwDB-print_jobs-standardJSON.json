@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "_id",
+    "file",
+    "order_placed",
+    "purchase_info",
+    "status"
+  ],
+  "properties": {
+    "_id": {
+      "type": "object",
+      "required": [
+        "order_id",
+        "student_id"
+      ],
+      "properties": {
+        "order_id": {
+          "type": "integer"
+        },
+        "student_id": {
+          "type": "integer"
+        }
+      }
+    },
+    "file": {
+      "type": "object",
+      "required": [
+        "location",
+        "size"
+      ],
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "size": {
+          "$ref": "#/$defs/Double"
+        }
+      }
+    },
+    "label": {
+      "type": "string"
+    },
+    "order_placed": {
+      "$ref": "#/$defs/Date"
+    },
+    "purchase_info": {
+      "type": "object",
+      "required": [
+        "cost",
+        "payment_method",
+        "transaction_time"
+      ],
+      "properties": {
+        "cost": {
+          "$ref": "#/$defs/Double"
+        },
+        "payment_method": {
+          "type": "string"
+        },
+        "transaction_time": {
+          "$ref": "#/$defs/Date"
+        }
+      }
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "Double": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$numberDouble": {
+              "enum": [
+                "Infinity",
+                "-Infinity",
+                "NaN"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Date": {
+      "type": "object",
+      "properties": {
+        "$date": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "$date"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
