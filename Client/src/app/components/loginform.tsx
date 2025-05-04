@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link'; 
+import { CircleHelp } from 'lucide-react';
 
 export default function LoginForm () {
     
@@ -42,7 +43,7 @@ export default function LoginForm () {
         <div className="mx-auto flex flex-col justify-start items-center h-[30rem] bg-white rounded-lg w-96 my-20">
             <div className="relative w-96 flex flex-row justify-center items-center mx-auto my-8">
             <h1 className="text-black text-5xl font-bold">LOGIN</h1>
-            <h1 className="absolute right-0 mr-10">Q</h1>
+            < CircleHelp className="absolute right-0 mr-10 text-black" />
             </div>
             <form className="flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
                 
