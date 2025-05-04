@@ -3,11 +3,10 @@ const {addDBCredentials, queryDBCredentials} = require('../helpers/auth.js');
 // Create a new admin user in the database
 // - TODO: are we going to assure email uniqueness?
 const register = async(req, res) => {
-    const{studentNumber, email, password} = req.body;
-    const{first, last} = req.body.name;
+    const{studentNumber, email, password, name} = req.body;
 
     // Check if all required fields have been sent
-    if (!studentNumber || !email || !password || !first || !last) {
+    if (!studentNumber || !email || !password || !name || !name.first || !name.last) {
         res.status(400).json({message: "Need a student number, student email, and password in order to create new account"})
         return
     }
@@ -25,7 +24,7 @@ const register = async(req, res) => {
     }
 
     // Add user information to database
-    await addDBCredentials(studentNumber, email, password, first, last, 'admin_users')
+    await addDBCredentials(studentNumber, email, password, name.first, name.last, 'admin_users')
     .then((success) => {
         // Check if user was successfully added to database or not
         if (success) res.status(200).json({message: "User added to database"})
