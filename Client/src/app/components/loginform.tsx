@@ -2,29 +2,40 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link'; 
+import { CircleHelp } from 'lucide-react';
 
 export default function LoginForm () {
     
-    const [account, setAccount] = useState("");
+    const [number, setNumber] = useState("");
     const [password, setPassWord] = useState("");
     const [error, setError] = useState(""); // error handling 
     const router = useRouter(); // routing after auth 
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!account.trim() || !password.trim()) { // prevent blanks 
+
+        const trimmedNum = number.trim();
+        const trimmedPwd = password.trim();
+
+        if (!trimmedNum || !trimmedPwd) { // prevent blanks 
             return;
         }
 
         // optional 
-        if (!account.endsWith('uwo.ca')) {
+        if (!trimmedNum.startsWith('2513')) {
             setError("Account email must end with uwo.ca.");
             return; 
         }
 
-        const response = await fetch("/api/login", {
+        const response = await fetch("http:://localhost:5000/api/accounts/login", {
             method: "POST",
-            body: JSON.stringify({ account, password }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ 
+                studentNumber: parseInt(trimmedNum, 10), 
+                password: trimmedPwd, 
+            }),
         });
 
         if (response.ok) {
@@ -42,13 +53,13 @@ export default function LoginForm () {
         <div className="mx-auto flex flex-col justify-start items-center h-[30rem] bg-white rounded-lg w-96 my-20">
             <div className="relative w-96 flex flex-row justify-center items-center mx-auto my-8">
             <h1 className="text-black text-5xl font-bold">LOGIN</h1>
-            <h1 className="absolute right-0 mr-10">Q</h1>
+            < CircleHelp className="absolute right-0 mr-10 text-black" />
             </div>
             <form className="flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
                 
                 <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black text-xl">Uwo email</h1></div>
-                <input type="email" placeholder="3dwestern@uwo.ca" value={account} onChange={(e) => setAccount(e.target.value)} 
+                    <div className="self-start mb-2"><h1 className="text-black text-xl">Student Number</h1></div>
+                <input placeholder="123456789" value={number} onChange={(e) => setNumber(e.target.value)} 
                 className="text-black mb-2 h-12 w-80 rounded-md border border-black px-2" required />
                 </div>
 
