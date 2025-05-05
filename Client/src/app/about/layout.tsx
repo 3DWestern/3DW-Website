@@ -1,12 +1,15 @@
 import Footer from '../components/footer';
+import Wrapper from '../components/wrapper';
 
 export default function AboutLayout ({children} : {children: React.ReactNode}) {
    return(
-    <div>
-        <main className="flex flex-col min-h-screen bg-gradient-to-l from-fuchsia-800 via-fuchsia-800 to-purple-900">
+    <div className="flex flex-col h-min-screen">
+        <Wrapper>
+            <main className="flex-grow">
             {children}
         </main>
-        <Footer />
+        <Footer color='default' />
+        </Wrapper>
     </div>
     );
 }

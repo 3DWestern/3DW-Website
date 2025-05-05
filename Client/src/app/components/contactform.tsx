@@ -61,7 +61,7 @@ export default function SignUpForm () {
     // check whether a character limit is needed?
     return (
         <div className="flex flex-col justify-center items-center">
-            <div className="text-center my-10 sm:mt-20 mx-auto sm:px-5">
+            <div className="text-center my-10 sm:mt-20 mx-auto sm:px-5 text-white">
             <h1 className="text-5xl sm:text-6xl mb-5 sm:mb-10">CONTACT US</h1>
             <p className={`${kantPro.className} text-xl sm:text-2xl w-2/3 mx-auto`}>We are actively seeking sponsors and collaborators to take our projects to the next level. Connect with us and let&apos;s discuss how we can build something amazing together.</p>
             </div>

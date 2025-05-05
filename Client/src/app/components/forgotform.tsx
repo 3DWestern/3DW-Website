@@ -27,26 +27,26 @@ export default function ForgotForm () {
     };
 
     return (
-        <div className="mx-auto flex flex-col justify-start items-center bg-white rounded-lg w-96 my-20">
+        <div className="mx-auto flex flex-col justify-start items-center bg-white dark:bg-black/50 rounded-lg w-96 my-20">
             <div className="relative w-96 flex flex-row justify-center items-center mx-auto my-8">
-            <h1 className="text-black text-5xl font-bold">Forgot Password</h1>
+            <h1 className="text-black dark:text-white text-5xl font-bold">Forgot Password</h1>
             </div>
             <form className="flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
                 
                 <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black text-xl">Uwo email</h1></div>
+                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl">UWO email</h1></div>
                 <input type="email" placeholder="3dwestern@uwo.ca" value={account} onChange={(e) => setAccount(e.target.value)} 
-                className="text-black mb-2 h-12 w-80 rounded-md border border-black px-2" required />
+                className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-80 rounded-md border border-black dark:border-white px-2" required />
                 </div>
 
                
-                <div className="text-white bg-black rounded-full text-center my-3">
+                <div className="text-white bg-black dark:textwhite dark:bg-gradient-to-r dark:from-fuchsia-800 dark:via-fuchsia-700 dark:to-purple-400 rounded-full text-center my-3">
                 <button className="px-10 h-12 text-2xl" type="submit">Reset Password</button>
                 </div>
             </form>
 
             {error && <p className="text-md text-red-500">{error}</p>} 
-            <Link href="/login" className="underline text-black mb-10 text-lg">Back to login</Link>
+            <Link href="/login" className="underline text-black dark:text-white mb-10 text-lg">Back to login</Link>
         </div>
     ); 
 }

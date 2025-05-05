@@ -3,6 +3,7 @@ import { Jersey_25 } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar";
 import type { Viewport } from "next";
+import Wrapper from "./components/wrapper";
 
 // font definition 
 const jersey_25 = Jersey_25({
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
 };
-
+// if page is contacts, then render black, if page is not contacts then render purple 
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -46,9 +47,11 @@ export default function RootLayout({
   
   return (
     <html lang="en">
-      <body className={`${jersey_25.className} flex flex-col min-h-screen`}>
+      <body className={`${jersey_25.className}`}>
+           <Wrapper>
            <Navbar />
-            {children}
+             {children}
+            </Wrapper>
       </body>
     </html>
   );

@@ -25,7 +25,7 @@ export default function Execs () {
                         height={320}
                         alt={data.alt} 
                         src={data.src}
-                        className="h-28 w-28 object-cover my-2 rounded-xl"
+                        className="h-28 w-28 object-cover my-2 rounded-xl text-white"
                         />
                         <div className="text-center text-white my-3 p-1">
                             <h1 className="block font-semibold text-2xl">{data.name}</h1>
