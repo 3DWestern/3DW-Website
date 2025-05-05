@@ -14,7 +14,7 @@ const kantPro = Kantumruy_Pro({
 });
 
 export default function SignUpForm () {
-    
+
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");

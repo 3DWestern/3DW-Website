@@ -7,10 +7,10 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ], 
-  darkMode: 'media', // system preference for dark mode instead of manual toggle
+  darkMode: 'media', 
   theme: {
     extend: {
-      animation: { // animation definition for shine border 
+      animation: { // animation for shine border 
         shine: "shine var(--duration) infinite linear", 
       },
       keyframes: {
