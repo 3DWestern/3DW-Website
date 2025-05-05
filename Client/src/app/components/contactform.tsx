@@ -1,70 +1,51 @@
 "use client";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link'; 
-import { CircleHelp } from 'lucide-react';
+import { Kantumruy_Pro } from "next/font/google";
 
-// placeholder contact form; TODO: edit the form and add styling for the page 
-// needs name, email and message 
-// this is just the form component 
+
+// load font 
+const kantPro = Kantumruy_Pro({
+    subsets: ['latin'],
+    display: 'swap',
+    preload: true,
+    fallback: ['Jersey_25','Arial', 'sans-serif'],
+    adjustFontFallback: true,
+});
+
 export default function SignUpForm () {
     
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [account, setAccount] = useState(""); // email
-    const [password, setPassWord] = useState("");
-    const [error, setError] = useState(""); // error handling 
-    const [number, setNumber] = useState("");
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
     const router = useRouter(); // routing after auth 
 
-    const handleLogin = async (e: React.FormEvent) => { // TODO: Ask about signing up API, whether any more middleware for registering before dashboard page
+    const handleSubmit = async (e: React.FormEvent) => { // TODO: Ask about signing up API, whether any more middleware for registering before dashboard page
         e.preventDefault();
 
-        const trimmedAccount = account.trim();
-        const trimmedPwd = password.trim();
-        const trimmedNum = number.trim();
-        const trimmedFirst = firstName.trim();
-        const trimmedLast = lastName.trim();
+        const trimmedEmail = email.trim();
+        const trimmedName = name.trim();
 
-        if (!trimmedAccount || trimmedPwd || !trimmedNum || !trimmedFirst || !trimmedLast ) { // prevent blanks 
-            return;
-        }
-
-        // check both 
-        if (!trimmedAccount.endsWith('uwo.ca') && !trimmedNum.startsWith('2513')) {
-            setError("Account email must end with uwo.ca and student number is not a UWO student number");
-        }
-
-        // check suffix of email
-        if (!trimmedAccount.endsWith('uwo.ca')) {
-            setError("Account email must end with uwo.ca.");
+        if (!trimmedEmail || !trimmedName) { // prevent blanks 
             return; 
         }
 
-        // check prefix of student number 
-        if (!trimmedNum.startsWith('2513') || trimmedNum.length != 9) {
-            setError("Student number is not a UWO student number.");
-            return; 
-        }
-
-        const response = await fetch("http:://localhost:5000/api/account/register", {
+        const response = await fetch("http:://localhost:5000/api/contact", { // TODO: replace with the actual route of the contact endpoint 
             method: "POST",
             headers: {
                 "Content-Type": "application/json", // make sure it is JSON 
             },
-            body: JSON.stringify({
-                 studentNumber: parseInt(trimmedNum, 10),
-                 email: trimmedAccount,
-                 name: {
-                    first: trimmedFirst,
-                    last: trimmedLast,
-                 },
-                 password: trimmedPwd,
+            body: JSON.stringify({ // TODO: Check the format with Josh! 
+                name: trimmedName, 
+                email: trimmedEmail,
+                message: message, 
                 }),
         });
 
         if (response.ok) {
-            router.push('/dashboard');
+            router.push('/dashboard'); // see if you can render the info here or whether a page is needed for the rendered message.
         } else {
             const data = await response.json(); // returning JSON 
             setError(data.message);
@@ -72,53 +53,36 @@ export default function SignUpForm () {
 
     };
 
-    // TODO: Add question mark for FAQ pop in 
+    // define width, height, and responsiveness of the form  
+    // Note: I did not set the mesage as required
+    // TODO: add finishing touches, adjust error position, sizing for large screens and responsiveness for mid sized screens; adjust responsive margins for input elements 
+    // the font size might be too big for sm screens for <p> 
+    // will need to squish the animated printer sprites in the background if possible on sm screens 
+    // check whether a character limit is needed?
     return (
-        <div className="mx-auto flex flex-col justify-start items-center bg-white rounded-lg w-96 my-20">
-            <div className="relative w-96 flex flex-row justify-center items-center mx-auto my-8">
-            <h1 className="text-black text-5xl font-bold">Sign up</h1>
-            < CircleHelp className="absolute right-0 mr-10 text-black" />
+        <div className="flex flex-col justify-center items-center">
+            <div className="text-center my-10 sm:mt-20 mx-auto sm:px-5">
+            <h1 className="text-5xl sm:text-6xl mb-5 sm:mb-10">CONTACT US</h1>
+            <p className={`${kantPro.className} text-xl sm:text-2xl w-2/3 mx-auto`}>We are actively seeking sponsors and collaborators to take our projects to the next level. Connect with us and let&apos;s discuss how we can build something amazing together.</p>
             </div>
-            <form className="flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
-                
-                <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black text-xl">First Name</h1></div>
-                    <input placeholder="John" value={firstName} onChange={(e) => setFirstName(e.target.value)} 
-                    className="text-black mb-2 h-12 w-80 rounded-md border border-black px-2" required />
-                </div>
 
-                <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black text-xl">Last Name</h1></div>
-                    <input placeholder="Doe" value={lastName} onChange={(e) => setLastName(e.target.value)} 
-                    className="text-black mb-2 h-12 w-80 rounded-md border border-black px-2" required />
-                </div>
-
-
-                <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black text-xl">Uwo email</h1></div>
-                    <input type="email" placeholder="3dwestern@uwo.ca" value={account} onChange={(e) => setAccount(e.target.value)} 
-                    className="text-black mb-2 h-12 w-80 rounded-md border border-black px-2" required />
-                </div>
-
-                <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black text-xl">Uwo Student Number</h1></div>
-                    <input placeholder="123456789" value={number} onChange={(e) => setNumber(e.target.value)} 
-                    className="text-black mb-2 h-12 w-80 rounded-md border border-black px-2" required/>
-                </div>
-
-                <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black text-lg">Password</h1></div>
-                    <input type="password" placeholder="mypassword" value={password} onChange={(e) => setPassWord(e.target.value)} 
-                    className="text-black h-12 w-80 rounded-md border border-black px-2" required />
-                </div>
-               
-                <div className="text-white bg-black rounded-full text-center my-3">
-                <button className="px-10 h-10 text-4xl" type="submit">Sign Up</button>
-                </div>
+            <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center mb-5 sm:my-12 sm:mb-10 mx-auto w-[23rem] sm:w-[40rem] text-black">
+                <input placeholder="Bill Gates" 
+                className="w-full h-10 sm:h-8 px-2 rounded-full mb-3 focus:outline-none focus:ring-2 focus:ring-purple-500" 
+                value={name} onChange={(e) => setName(e.target.value)} required/>
+                <input placeholder="3dwestern@uwo.ca" 
+                className="w-full h-10 sm:h-8 px-2 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500" 
+                value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                <textarea 
+                placeholder="I want to build a 3D Printed rocket..." 
+                className="w-full h-80 px-2 text-md align-top resize-none mt-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                value={message} onChange={(e) => setMessage(e.target.value)}/>
+                <button type="submit" 
+                className="px-2 mt-12 mb-5 text-5xl sm:text-6xl rounded-md text-white bg-[#750A89] transform transition-transform duration-400 hover:scale-125">
+                    SEND</button>
             </form>
-
-            {error && <p className="text-md text-red-500">{error}</p>} 
-            <Link href="/login" className="underline text-black mb-4 text-lg">Back to login</Link>
+            {error && <p className="text-red-200">{error}</p>}
+            {/** TODO: give error msg more space and a larger size */}
         </div>
     ); 
 }
