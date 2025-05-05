@@ -6,7 +6,7 @@ export default function ContactLayout ({children} : {children: React.ReactNode})
         <main className="flex flex-col min-h-screen bg-black">
             {children}
         </main>
-        <Footer />
+        <Footer color="#232323CC" />
     </div>
     );
 }
