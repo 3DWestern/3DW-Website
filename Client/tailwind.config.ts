@@ -6,11 +6,10 @@ export default {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ], 
-  darkMode: 'media', // system preference for dark mode instead of manual toggle
+  ], // add dark mode, light mode, default here 
   theme: {
     extend: {
-      animation: { // animation definition for shine border 
+      animation: {
         shine: "shine var(--duration) infinite linear", 
       },
       keyframes: {
