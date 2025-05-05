@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Jersey_25 } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/navbar";
 import type { Viewport } from "next";
-import Wrapper from "./components/wrapper";
 
 // font definition 
 const jersey_25 = Jersey_25({
@@ -48,10 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jersey_25.className}`}>
-           <Wrapper>
-           <Navbar />
              {children}
-            </Wrapper>
       </body>
     </html>
   );

@@ -1,15 +1,14 @@
 import Footer from '../components/footer';
-import Wrapper from '../components/wrapper';
+import Navbar from '../components/navbar'; 
 
 export default function AboutLayout ({children} : {children: React.ReactNode}) {
    return(
-    <div className="flex flex-col h-min-screen">
-        <Wrapper>
-            <main className="flex-grow">
+    <div className="transition-colors bg-gradient-to-l from-fuchsia-800 via-fuchsia-800 to-purple-900">
+        <Navbar />
+            <main className="flex flex-col">
             {children}
-        </main>
+            </main>
         <Footer color='default' />
-        </Wrapper>
     </div>
     );
 }

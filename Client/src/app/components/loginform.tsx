@@ -50,6 +50,7 @@ export default function LoginForm () {
     // TODO: Add question mark for FAQ pop in 
     // TODO: Adjust size of the login elements; login margins 
     // TODO: Add API route to handle login (+middleware?) and auth logic 
+    // optional: add shine border for login
     return (
         <div className="mx-auto flex flex-col justify-start items-center h-[30rem] bg-white dark:bg-black/50 rounded-lg w-96 my-20">
             <div className="relative w-96 flex flex-row justify-center items-center mx-auto my-8">
@@ -71,7 +72,7 @@ export default function LoginForm () {
                 <Link  href="/forgotpassword" className="underline text-black dark:text-white p-2">Forgot password?</Link>
                 </div>
                
-                <div className="text-white bg-black dark:bg-gradient-to-r from fuschia-800 via-fuschia-700 to-purple-400 rounded-full text-center my-3">
+                <div className="text-white bg-black dark:bg-gradient-to-r dark:from-fuchsia-800 dark:via-fuchsia-700 dark:to-purple-400 rounded-full text-center my-3">
                 <button className="px-10 h-10 text-4xl" type="submit">LOGIN</button>
                 </div>
             </form>

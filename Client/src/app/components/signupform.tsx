@@ -71,6 +71,7 @@ export default function SignUpForm () {
     };
 
     // TODO: Add question mark for FAQ pop in 
+    // TODO: Adjust the size of the login form
     return (
         <div className="mx-auto flex flex-col justify-start items-center bg-white dark:bg-black/50 rounded-lg w-96 my-20">
             <div className="relative w-96 flex flex-row justify-center items-center mx-auto my-8">
