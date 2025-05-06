@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     },
   },
 };
-// if page is contacts, then render black, if page is not contacts then render purple 
+
 export default function RootLayout({
   children,
 }: Readonly<{
