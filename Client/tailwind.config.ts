@@ -1,6 +1,5 @@
 import type { Config } from "tailwindcss";
 
-/* TODO: configure dark and light theme modes! */
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",

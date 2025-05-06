@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Navbar() { // using list items and unordered list for better accessiblity
     return (
         <nav className="sticky top-0 z-50 p-4 w-full bg-black/70">
-            <ul className="flex justify-between px-6 items-center text-white text-lg font-medium sm:font-bold sm:text-2xl">
+            <ul className="flex justify-between sm:px-3 items-center text-white text-lg font-medium sm:font-bold sm:text-2xl gap-x-3 sm:gap-x-1">
                 <li>
                     <Link href="/">
                         Home
