@@ -5,41 +5,37 @@ import Image from 'next/image';
 // import the images path and pass them through the parent container 
 // how to dynamically adjust the grid/ size for each depending on the container elements 
 
-// layout pattern for each grid; TODO: define fixed image sizes? 
-const layoutPattern = [
-    { colSpan: 2, rowSpan: 4 }, // 4
-    { colSpan: 2, rowSpan: 2 }, // 3
-    { colSpan: 1, rowSpan: 2 }, // 2
-    { colSpan: 1, rowSpan: 1 }, // 
-    { colSpan: 1, rowSpan: 1 }, 
-    { colSpan: 1, rowSpan: 1 },
-];
-
-function spanClass(col: number, row: number) {
-    return `col-span-${col} row-span-${row}`;
-}
-
 type ImageData = { // duplicated type from gallery/images 
     src: string;
     alt: string; 
+    width?: number;
 };
 
 
-export default function Grid({ images } : { images: ImageData[] }) {
-    console.log(spanClass(layoutPattern[0].colSpan, layoutPattern[0].rowSpan) === 'col-span-1 row-span-3')
-
-    return (
-       <div className="bg-white h-[600px] w-5/6 sm:w-3/4 grid grid-cols-4 auto-rows-fr gap-4 mb-10">
-            {images.map((img, i) => {
-            const layout = layoutPattern[i % layoutPattern.length];
+       {/* <div className="bg-white h-[600px] w-5/6 sm:w-3/4 grid grid-flow-dense grid-cols-custom gap-[1rem] mb-10">
+            {images.map((img, i) => { // map each image to the bento grid 
             return (
-            <div
-                key={i}
-                className={`${spanClass(layout.colSpan, layout.rowSpan)} bg-red-700 relative overflow-hidden rounded-lg`}
-            >
-          </div>
+                <div key={i} className="relative h-full object-cover">
+                <Image src={img.src} alt={img.alt} fill className="w-full h-auto block"/>
+                </div>
         );
       })}
-    </div> 
+    </div>  */}
+export default function Grid({ images } : { images: ImageData[] }) {
+
+    // make an image span 2 columns if it's width > 400? 
+    return (
+        <div className="grid auto-rows-[8rem] grid-cols-custom gap-4 grid-flow-dense gap-4 w-full max-w-screen-lg mx-auto mt-10 mb-20">
+        {images.map((img, i) => (
+        <div
+          key={i}
+          className={`relative w-full h-full overflow-hidden rounded-md ${
+            img.width === 400 ? 'col-span-2' : 'col-span-1'
+          }`}
+        >
+          <Image src={img.src} alt={img.alt} fill className="object-cover" />
+        </div>
+      ))}
+    </div>
     );
 }
