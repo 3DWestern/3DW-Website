@@ -52,24 +52,24 @@ export default function LoginForm () {
     // TODO: Add API route to handle login (+middleware?) and auth logic 
     // optional: add shine border for login
     return (
-        <div className="mx-auto flex flex-col justify-start items-center bg-white dark:bg-black/50 rounded-lg w-2/3 sm:w-96 my-20">
+        <div className="mx-auto flex flex-col justify-start items-center bg-white dark:bg-black/50 rounded-lg w-3/4 sm:w-96 my-20">
             <div className="relative mt-5 w-96 flex flex-row justify-center items-center sm:mx-auto sm:my-8">
-            <h1 className="text-black dark:text-white text-3xl sm:text-5xl font-bold">LOGIN</h1>
+            <h1 className="text-black dark:text-white text-4xl sm:text-5xl font-bold">LOGIN</h1>
             < CircleHelp className="absolute right-0 mr-20 sm:right-0 sm:mr-10 text-black dark:text-white" />
             </div>
 
-            <form className="relative w-full mt-4 sm:mt-2 flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
-                <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mt-4 sm:mt-2 mb-2"><h1 className="text-black dark:text-white text-lg">Student Number</h1></div>
+            <form className=" w-5/6 mt-4 sm:mt-2 flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
+                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">Student Number</h1></div>
                 <input placeholder="123456789" value={number} onChange={(e) => setNumber(e.target.value)} 
-                className="text-black dark:text-white dark:bg-black/0 mb-2 h-10 sm:h-12 sm:w-80 rounded-md border border-black dark:border-white px-2" required />
+                className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
                 </div>
 
-                <div className="flex flex-col justify-center items-center">
-                <div className="self-start mb-2"><h1 className="text-black text-lg dark:text-white">Password</h1></div>
+                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                <div className="self-start mb-2"><h1 className="text-black text-xl sm:text-2xl dark:text-white">Password</h1></div>
                 <input type="password" placeholder="mypassword" value={password} onChange={(e) => setPassWord(e.target.value)} 
-                className="text-black dark:text-white dark:bg-black/0 h-10 sm:h-12 sm:w-80 rounded-md border border-black dark:border-white px-2" required />
-                <Link  href="/forgotpassword" className="underline text-black dark:text-white p-2 sm:text-lg mt-1">Forgot password?</Link>
+                className="text-black dark:text-white dark:bg-black/0 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
+                <Link  href="/forgotpassword" className="underline text-black dark:text-white p-2 text-lg mt-1">Forgot password?</Link>
                 </div>
                
                 <div className="text-white bg-black dark:bg-gradient-to-r dark:from-fuchsia-800 dark:via-fuchsia-700 dark:to-purple-400 rounded-full text-center my-1 sm:my-3">

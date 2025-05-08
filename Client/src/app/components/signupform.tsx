@@ -73,46 +73,45 @@ export default function SignUpForm () {
     // TODO: Add question mark for FAQ pop in 
     // TODO: Adjust the size of the login form
     return (
-        <div className="mx-auto flex flex-col justify-start items-center bg-white dark:bg-black/50 rounded-lg w-96 my-20">
-            <div className="relative w-96 flex flex-row justify-center items-center mx-auto my-8">
-            <h1 className="text-black dark:text-white text-5xl font-bold">Sign up</h1>
-            < CircleHelp className="absolute right-0 mr-10 text-black dark:text-white" />
+        <div className="mx-auto flex flex-col justify-start items-center bg-white dark:bg-black/50 rounded-lg w-3/4 sm:w-96 my-20">
+            <div className="relative w-full sm:w-96 flex flex-row justify-center items-center mx-auto my-4 sm:my-8">
+            <h1 className="text-black dark:text-white text-4xl sm:text-5xl font-bold">Sign up</h1>
+            < CircleHelp className="absolute right-0 mr-10 sm:right-0 text-black dark:text-white" />
             </div>
-            <form className="flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
+            <form className="w-5/6 flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
                 
-                <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl">First Name</h1></div>
+                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">First Name</h1></div>
                     <input placeholder="John" value={firstName} onChange={(e) => setFirstName(e.target.value)} 
-                    className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-80 rounded-md border border-black dark:border-white px-2" required />
+                    className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
                 </div>
 
-                <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl">Last Name</h1></div>
+                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">Last Name</h1></div>
                     <input placeholder="Doe" value={lastName} onChange={(e) => setLastName(e.target.value)} 
-                    className="text-black dark:text-white dark:bg-black/0 b-2 h-12 w-80 rounded-md border border-black dark:border-white px-2" required />
+                    className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
                 </div>
 
-
-                <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl">UWO email</h1></div>
+                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">UWO email</h1></div>
                     <input type="email" placeholder="3dwestern@uwo.ca" value={account} onChange={(e) => setAccount(e.target.value)} 
-                    className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-80 rounded-md border border-black dark:border-white px-2" required />
+                    className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
                 </div>
 
-                <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl">UWO Student Number</h1></div>
+                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">UWO Student Number</h1></div>
                     <input placeholder="123456789" value={number} onChange={(e) => setNumber(e.target.value)} 
-                    className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-80 rounded-md border border-black dark:border-white px-2" required/>
+                    className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required/>
                 </div>
 
-                <div className="flex flex-col justify-center items-center">
-                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-lg">Password</h1></div>
+                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                    <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">Password</h1></div>
                     <input type="password" placeholder="mypassword" value={password} onChange={(e) => setPassWord(e.target.value)} 
-                    className="text-black dark:text-white dark:bg-black/0 h-12 w-80 rounded-md border border-black dark:border-white px-2" required />
+                    className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
                 </div>
                
                 <div className="text-white bg-black dark:bg-gradient-to-r dark:from-fuchsia-800 dark:via-fuchsia-700 dark:to-purple-400 dark:border dark:border-white rounded-full text-center my-3">
-                <button className="px-10 h-10 text-4xl" type="submit">Sign Up</button>
+                <button className="px-10 h-10 text-3xl sm:text-4xl" type="submit">Sign Up</button>
                 </div>
             </form>
 
