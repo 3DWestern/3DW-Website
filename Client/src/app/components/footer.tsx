@@ -8,7 +8,7 @@ export default function Footer ({ color='bg-black/50' } : { color?: string }) {
     const isHex = color.startsWith('#'); // default for bg-black, # for specific color 
 
     return(
-        <div style={isHex ? { backgroundColor: color } : { backgroundColor: ' #00000080' }} className="flex flex-col items-center justify-center gap-y-1">
+        <div style={isHex ? { backgroundColor: color } : { backgroundColor: ' #00000080' }} className="flex flex-col items-center justify-center gap-y-1 w-full h-full">
             <div className="z-10 text-2xl font-medium sm:font-bold sm:text-3xl my-4 text-white">
                 <h1>Subscribe to Our NewsLetter</h1>
             </div>

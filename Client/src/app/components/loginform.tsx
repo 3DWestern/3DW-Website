@@ -41,7 +41,7 @@ export default function LoginForm () {
         });
         
         if (response?.ok) { // change this depending on the format of the JSON
-            router.push('/dashboard');
+            router.push('/dashboard'); // TODO: build this using backend slugs? 
         } else {
             setError(postError || response?.message || "An error occurred.");
         }

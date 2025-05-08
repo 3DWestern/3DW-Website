@@ -1,4 +1,3 @@
-import Footer from '../components/footer';
 import Navbar from '../components/navbar';
 
 export default function LoginLayout ({children} : {children: React.ReactNode}) {
@@ -8,7 +7,6 @@ export default function LoginLayout ({children} : {children: React.ReactNode}) {
         <main className="flex flex-col">
             {children}
         </main>
-        <Footer />
     </div>
     );
 }
