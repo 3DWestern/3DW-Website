@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 
-export default function UsePostRequest<PayLoad=any, Response=any>() {
+export default function UsePostRequest<PayLoad=any, Response=any>() { // ignore any warning for this hook.
 
     const [error, setError] = useState<string | null>(null);
     const [response, setResponse] = useState<Response | null>(null);
@@ -26,7 +26,8 @@ export default function UsePostRequest<PayLoad=any, Response=any>() {
             setResponse(result as Response);
 
         } catch (err) {
-            setError((err as Error).message);
+            // console.log(err);
+            setError((err as Error).message); // TODO: check if this is the same as postError 
         } 
     };
 

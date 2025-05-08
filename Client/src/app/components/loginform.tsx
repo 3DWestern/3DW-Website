@@ -30,7 +30,7 @@ export default function LoginForm () {
         }
 
         // optional 
-        if (!trimmedNum.startsWith('2513')) {
+        if (!trimmedNum.startsWith('2513') || trimmedNum.length != 9) {
             setError("Student number is not a UWO student number.");
             return; 
         }
