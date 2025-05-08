@@ -34,10 +34,11 @@ export default function ForgotForm () {
             </div>
             <form className="relative w-5/6 flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
                 
+                {/* If you think having a shorter input looks better on mobile: w-5/6 sm:w-full */}
                 <div className="w-full sm:w-80 flex flex-col justify-center items-center px-2 sm:px-0">
                     <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">UWO email</h1></div>
                 <input type="email" placeholder="3dwestern@uwo.ca" value={account} onChange={(e) => setAccount(e.target.value)} 
-                className="text-black dark:text-white dark:bg-black/0 sm:mb-2 h-12 sm:h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
+                className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
                 </div>
 
                

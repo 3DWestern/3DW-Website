@@ -75,36 +75,36 @@ export default function SignUpForm () {
     return (
         <div className="mx-auto flex flex-col justify-start items-center bg-white dark:bg-black/50 rounded-lg w-3/4 sm:w-96 my-20">
             <div className="relative w-full sm:w-96 flex flex-row justify-center items-center mx-auto my-4 sm:my-8">
-            <h1 className="text-black dark:text-white text-4xl sm:text-5xl font-bold">Sign up</h1>
+            <h1 className="text-black dark:text-white text-4xl sm:text-5xl font-bold">Sign Up</h1>
             < CircleHelp className="absolute right-0 mr-10 sm:right-0 text-black dark:text-white" />
             </div>
             <form className="w-5/6 flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
                 
-                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                <div className="w-full sm:w-80 flex flex-col justify-center items-center">
                     <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">First Name</h1></div>
                     <input placeholder="John" value={firstName} onChange={(e) => setFirstName(e.target.value)} 
                     className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
                 </div>
 
-                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                <div className="w-full sm:w-80 flex flex-col justify-center items-center">
                     <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">Last Name</h1></div>
                     <input placeholder="Doe" value={lastName} onChange={(e) => setLastName(e.target.value)} 
                     className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
                 </div>
 
-                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                <div className="w-full sm:w-80 flex flex-col justify-center items-center">
                     <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">UWO email</h1></div>
                     <input type="email" placeholder="3dwestern@uwo.ca" value={account} onChange={(e) => setAccount(e.target.value)} 
                     className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
                 </div>
 
-                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                <div className="w-full sm:w-80 flex flex-col justify-center items-center">
                     <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">UWO Student Number</h1></div>
                     <input placeholder="123456789" value={number} onChange={(e) => setNumber(e.target.value)} 
                     className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required/>
                 </div>
 
-                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                <div className="w-full sm:w-80 flex flex-col justify-center items-center">
                     <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">Password</h1></div>
                     <input type="password" placeholder="mypassword" value={password} onChange={(e) => setPassWord(e.target.value)} 
                     className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
@@ -114,7 +114,6 @@ export default function SignUpForm () {
                 <button className="px-10 h-10 text-3xl sm:text-4xl" type="submit">Sign Up</button>
                 </div>
             </form>
-
             {error && <p className="text-md text-red-500">{error}</p>} 
             <Link href="/login" className="underline text-black dark:text-white mb-4 text-lg">Back to login</Link>
         </div>

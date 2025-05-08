@@ -3,19 +3,27 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link'; 
 import { CircleHelp } from 'lucide-react';
+import UsePostRequest from './hooks/postrequest';
 
 export default function LoginForm () {
     
-    const [number, setNumber] = useState("");
-    const [password, setPassWord] = useState("");
+    const [formData, setFormData] = useState({number: '', password: ''});
     const [error, setError] = useState(""); // error handling 
     const router = useRouter(); // routing after auth 
+    
+    type data = {
+        studentNumber: number;
+        password: string;
+    };
+    
+    // TODO: Change handling response depending on format of JSON returned by server!  
+    const { postReq, response, error: postError } = UsePostRequest<data, { ok: boolean; message?: string }>(); // hook for POST 
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const trimmedNum = number.trim();
-        const trimmedPwd = password.trim();
+        const trimmedNum = formData.number.trim();
+        const trimmedPwd = formData.password.trim();
 
         if (!trimmedNum || !trimmedPwd) { // prevent blanks 
             return;
@@ -23,33 +31,26 @@ export default function LoginForm () {
 
         // optional 
         if (!trimmedNum.startsWith('2513')) {
-            setError("Account email must end with uwo.ca.");
+            setError("Student number is not a UWO student number.");
             return; 
         }
 
-        const response = await fetch("http:://localhost:5000/api/account/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ 
-                studentNumber: parseInt(trimmedNum, 10), 
-                password: trimmedPwd, 
-            }),
+        await postReq('http://localhost:5000/api/account/login', {
+            studentNumber: parseInt(trimmedNum, 10),
+            password: trimmedPwd,
         });
-
-        if (response.ok) {
+        
+        if (response?.ok) { // change this depending on the format of the JSON
             router.push('/dashboard');
         } else {
-            const data = await response.json(); // returning JSON 
-            setError(data.message);
+            setError(postError || response?.message || "An error occurred.");
         }
 
     };
 
     // TODO: Add question mark for FAQ pop in 
     // TODO: Adjust size of the login elements; login margins 
-    // TODO: Add API route to handle login (+middleware?) and auth logic 
+    // TODO: Add API route to handle login (+middleware?) and auth logic; rate limiter?
     // optional: add shine border for login
     return (
         <div className="mx-auto flex flex-col justify-start items-center bg-white dark:bg-black/50 rounded-lg w-3/4 sm:w-96 my-20">
@@ -58,16 +59,16 @@ export default function LoginForm () {
             < CircleHelp className="absolute right-0 mr-20 sm:right-0 sm:mr-10 text-black dark:text-white" />
             </div>
 
-            <form className=" w-5/6 mt-4 sm:mt-2 flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
-                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+            <form className="w-5/6 mt-4 sm:mt-2 flex flex-col justify-center items-center gap-y-4" onSubmit={handleLogin}>
+                <div className="w-full sm:w-80 flex flex-col justify-center items-center">
                     <div className="self-start mb-2"><h1 className="text-black dark:text-white text-xl sm:text-2xl">Student Number</h1></div>
-                <input placeholder="123456789" value={number} onChange={(e) => setNumber(e.target.value)} 
+                <input placeholder="123456789" value={formData.number} onChange={(e) => setFormData({ ...formData, number: e.target.value})} 
                 className="text-black dark:text-white dark:bg-black/0 mb-2 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
                 </div>
 
-                <div className="w-5/6 sm:w-full flex flex-col justify-center items-center">
+                <div className="w-full sm:w-80 flex flex-col justify-center items-center">
                 <div className="self-start mb-2"><h1 className="text-black text-xl sm:text-2xl dark:text-white">Password</h1></div>
-                <input type="password" placeholder="mypassword" value={password} onChange={(e) => setPassWord(e.target.value)} 
+                <input type="password" placeholder="mypassword" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value})} 
                 className="text-black dark:text-white dark:bg-black/0 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
                 <Link  href="/forgotpassword" className="underline text-black dark:text-white p-2 text-lg mt-1">Forgot password?</Link>
                 </div>
