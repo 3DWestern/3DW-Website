@@ -1,6 +1,5 @@
 import type { Config } from "tailwindcss";
 
-/* TODO: configure dark and light theme modes! */
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,6 +9,9 @@ export default {
   darkMode: 'media', 
   theme: {
     extend: {
+      gridTemplateColumns: {
+        custom: 'repeat(auto-fill, minmax(8rem, 0.5fr))',
+      },
       animation: { // animation for shine border 
         shine: "shine var(--duration) infinite linear", 
       },

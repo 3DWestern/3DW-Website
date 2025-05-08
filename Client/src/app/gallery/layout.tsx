@@ -1,12 +1,14 @@
 import Footer from '../components/footer';
+import Navbar from '../components/navbar';
 
 export default function GalleryLayout ({children} : {children: React.ReactNode}) {
    return(
-    <div>
-        <main className="flex flex-col min-h-screen bg-gradient-to-l from-fuchsia-800 via-fuchsia-800 to-purple-900">
+    <div className="flex flex-col transition-colors bg-black">
+        <Navbar />
+        <main className="flex-grow flex flex-col">
             {children}
         </main>
-        <Footer color="default" />
+        <Footer color="#232323CC" />
     </div>
     );
 }

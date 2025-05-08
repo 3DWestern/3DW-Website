@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Jersey_25 } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/navbar";
 import type { Viewport } from "next";
 
 // font definition 
@@ -46,9 +45,8 @@ export default function RootLayout({
   
   return (
     <html lang="en">
-      <body className={`${jersey_25.className} flex flex-col min-h-screen`}>
-           <Navbar />
-            {children}
+      <body className={`${jersey_25.className}`}>
+             {children}
       </body>
     </html>
   );

@@ -1,15 +1,24 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import teamdata from '../about/teamdata';
-import type { Exec } from '../about/teamdata';
 import Tilt from 'react-parallax-tilt';
 
 // the glare doesn't quite work; TODO: add md/sm responsiveness, adjust the grid a bit more and sort out component tree 
-export default function Execs () {
+
+type Exec = { // duplicated this to avoid execssive importing down the component tree. 
+    name: string;
+    title: string;
+    src: string;
+    alt: string;
+    url: string;
+    bgColor: string; 
+};
+
+
+export default function Execs ({execs} : {execs: Exec[]}) {
     return (
         <div className="w-2/3 flex flex-wrap flex col justify-center items-center mx-auto my-10">
-            {teamdata.map((data: Exec, index) => (
+            {execs.map((data: Exec, index) => (
                 <div key={index}>
                    <Tilt 
                    glareEnable={true}
@@ -25,7 +34,7 @@ export default function Execs () {
                         height={320}
                         alt={data.alt} 
                         src={data.src}
-                        className="h-28 w-28 object-cover my-2 rounded-xl"
+                        className="h-28 w-28 object-cover my-2 rounded-xl text-white"
                         />
                         <div className="text-center text-white my-3 p-1">
                             <h1 className="block font-semibold text-2xl">{data.name}</h1>

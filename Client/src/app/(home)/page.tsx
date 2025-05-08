@@ -1,14 +1,29 @@
 import Images from '../components/images';
 import Landing from '../components/landing';
 import images from './images'; 
+import Footer from '../components/footer';
+// sections 
+
+// TODO: place footer outside of div, place footer in scrollable and see how it goes 
 
 export default function Home() {
   return (
-    <div className="overflow-hidden flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-     <main className="flex-grow">
-      <Landing />
-      <Images images={images}/> 
-     </main> 
-    </div>
+  <div className="h-screen w-full overflow-y-scroll scroll-smooth snap-y snap-mandatory">
+  <section className="h-screen snap-start bg-red-200 flex items-center justify-center">
+    <h1>Section 1</h1>
+  </section>
+
+  <section className="h-screen snap-start bg-blue-200 flex items-center justify-center">
+    <h1>Section 2</h1>
+  </section>
+
+  <section className="h-screen snap-start bg-green-200 flex items-center justify-center mb-2">
+    <h1>Section 3</h1>
+  </section>
+  
+  <div className="h-1/2 snap-start flex items-center justify-center w-full">
+  <Footer />
+  </div>
+</div>
   );
 }

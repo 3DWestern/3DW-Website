@@ -1,4 +1,4 @@
-import React from 'react';
+// import { Suspense } from 'react;' // suspense for streaming 
 
 export default function AdminDashboard () {
     return (
