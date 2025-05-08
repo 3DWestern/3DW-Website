@@ -47,7 +47,7 @@ export default function SignUpForm () {
         }
 
         
-        await postReq('http://localhost:5000/api/contact/', { // TODO: Check the format w/ Josh! 
+        await postReq('http://localhost:5000/api/contact/', { // TODO: Check the format w/ Josh and integrate! 
             name: trimmedName,
             email: trimmedEmail,
             message: trimmedMsg,  
