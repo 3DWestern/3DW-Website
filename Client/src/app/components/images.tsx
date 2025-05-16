@@ -2,13 +2,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
-import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
+//import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
 
 type Image = {
     src: string;
     alt: string;
 };
 
+// TODO: add the image indicator, add more images and adjust! 
 // set autoplay to true for shuffling between images automatically 
 export default function Images({ images, autoplay = true } : { images: Image[], autoplay?: boolean }) {
     const [active, setActive] = useState(0);
@@ -19,7 +20,7 @@ export default function Images({ images, autoplay = true } : { images: Image[], 
     }, [images.length])
 
 
-    /* const handlePrev = () => { // uncomment this for handling arrows.
+    /* const handlePrev = () => { // uncomment this for handling buttons for back and forth.
         setActive((prev) => (prev - 1 + images.length) % images.length);
     } */
 
@@ -42,15 +43,15 @@ export default function Images({ images, autoplay = true } : { images: Image[], 
     }, [autoplay, handleNext]);
     
 
-    // TODO: Adjust size of element for responsiveness 
+    // TODO: Adjust size of container and image when adding more images, or keep images of the same size! Most troublesome part for this container.
     return (
         <>
-        <div className="flex flex-col items-center justify-center relative w-full h-2/3 gap-y-1 mt-10">
+        <div className="flex flex-col items-center justify-center relative w-full h-2/3 gap-y-1 sm:mt-6">
                 <AnimatePresence>
                 {images.map((image, index) => (
                     <button key={index} onClick={handleNext}>
                     <motion.div
-                    className="absolute inset-0 origin-bottom w-1/2 h-full mx-auto flex items-center justify-center"
+                    className="absolute inset-0 origin-bottom w-1/2 sm:w-1/3 h-2/3 mt-20 sm:mt-0 sm:h-full mx-auto flex items-center justify-center"
                     initial={{
                         opacity: 0,
                         scale: 0.9,
@@ -76,7 +77,7 @@ export default function Images({ images, autoplay = true } : { images: Image[], 
                         ease: "easeInOut",
                     }}
                     >
-                    <Image src={image.src} alt={image.alt} width={500} height={500} draggable={false} className="absolute inset-0 h-full origin-bottom rounded-lg bg-black w-full"/>
+                    <Image src={image.src} alt={image.alt} width={500} height={500} draggable={false} className="absolute inset-0 h-full origin-bottom rounded-xl bg-black w-full"/>
                     </motion.div>
                     </button>
                 ))}

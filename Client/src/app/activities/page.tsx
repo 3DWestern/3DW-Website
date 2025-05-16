@@ -1,8 +1,10 @@
-import React from 'react';
+import Message from '../components/message';  
 
 export default function Activities () {
     return (
-        <p>Activities Page</p>
+    <div className="min-h-screen">
+        <Message header={"Coming Soon!"} message={"Let Josh Cook 🔥"}/>
+    </div>
     );
 
 }
