@@ -19,9 +19,9 @@ export default function Images({ images, autoplay = true } : { images: Image[], 
     }, [images.length])
 
 
-    const handlePrev = () => {
+    /* const handlePrev = () => { // uncomment this for handling arrows.
         setActive((prev) => (prev - 1 + images.length) % images.length);
-    }
+    } */
 
     const isActive = (index: number) => {
         return index === active; 
@@ -48,8 +48,8 @@ export default function Images({ images, autoplay = true } : { images: Image[], 
         <div className="flex flex-col items-center justify-center relative w-full h-2/3 gap-y-1 mt-10">
                 <AnimatePresence>
                 {images.map((image, index) => (
+                    <button key={index} onClick={handleNext}>
                     <motion.div
-                    key={image.src}
                     className="absolute inset-0 origin-bottom w-1/2 h-full mx-auto flex items-center justify-center"
                     initial={{
                         opacity: 0,
@@ -78,10 +78,11 @@ export default function Images({ images, autoplay = true } : { images: Image[], 
                     >
                     <Image src={image.src} alt={image.alt} width={500} height={500} draggable={false} className="absolute inset-0 h-full origin-bottom rounded-lg bg-black w-full"/>
                     </motion.div>
+                    </button>
                 ))}
                 </AnimatePresence>
         </div>
-            <div className="flex flex-row justify-items-center w-100 z-10 mt-10 gap-x-1 z-100 bg-red-700 bg-blue-700">
+            {/* <div className="flex flex-row justify-items-center w-100 z-10 mt-10 gap-x-1 z-100 bg-red-700 bg-blue-700">
                 <button 
                 onClick={handlePrev}
                 className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800 self-start mr-10">
@@ -93,7 +94,7 @@ export default function Images({ images, autoplay = true } : { images: Image[], 
                 className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800 self-end">
                     <IconArrowRight className="h-10 w-10 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
                 </button>
-            </div>
+            </div> */}
         </>
     );
 }
