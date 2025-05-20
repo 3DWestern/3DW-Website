@@ -1,16 +1,13 @@
 'use client';
 import Images from '../components/images';
 import { Kantumruy_Pro } from 'next/font/google';
-import images from './images'; 
+//import images from './images'; 
 import Footer from '../components/footer';
 import { useRouter } from 'next/navigation';
+import Carousel from '../components/carousel';
+import { activities, images } from './data';
 
-// TODO: Activites, async server comps, footer adjust size,, text overlay, icons for contact, landing page components.  
 // TODO: Adjust snapping 
-// TODO: Hide the nav bar when scrolling down for better visibility with snap, or don't use snap at all. 
-// <div className="w-52 h-14 justify-start text-fuchsia-600 text-5xl font-normal font-['Jersey_25']">PRINT NOW</div>
-// <div className="w-64 h-24 bg-gradient-to-l from-white to-zinc-300/60 rounded-[60px]" />
-
 // load the font here 
 const kant_pro = Kantumruy_Pro({
   subsets: ['latin'],
@@ -29,7 +26,7 @@ export default function Home() {
     router.push('/login');
   }
 
-  // TODO: Test responsiveness 
+  // TODO: Test responsiveness; gallery on lg screens a bit squished. 
   return (
     <div className="h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory hide-scrollbar">
   <section
@@ -64,7 +61,7 @@ export default function Home() {
   </section>
 
   <section className="h-screen snap-start bg-blue-200 flex items-center justify-center">
-    <h1 className="text-black">Carousel Coming Soon! </h1>
+    <Carousel images={activities} />
   </section>
 
   {/** TODO: REFORMAT FLEX; Adjust margins/responsiveness if adding scroll hook for nav bar hiding */}

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 //import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
 
-type Image = {
+export type Image = {
     src: string;
     alt: string;
 };
