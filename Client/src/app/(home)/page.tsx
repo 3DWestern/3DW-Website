@@ -1,10 +1,9 @@
 'use client';
 import Images from '../components/images';
 import { Kantumruy_Pro } from 'next/font/google';
-//import images from './images'; 
 import Footer from '../components/footer';
 import { useRouter } from 'next/navigation';
-import Carousel from '../components/carousel';
+import Slider from '../components/slider';
 import { activities, images } from './data';
 
 // TODO: Adjust snapping 
@@ -61,7 +60,7 @@ export default function Home() {
   </section>
 
   <section className="h-screen snap-start bg-blue-200 flex items-center justify-center">
-    <Carousel images={activities} />
+    <Slider images={activities} />
   </section>
 
   {/** TODO: REFORMAT FLEX; Adjust margins/responsiveness if adding scroll hook for nav bar hiding */}
