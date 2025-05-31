@@ -3,9 +3,9 @@ import Navbar from '../components/navbar';
 
 export default function GalleryLayout ({children} : {children: React.ReactNode}) {
    return(
-    <div className="flex flex-col transition-colors bg-black">
+    <div className="flex flex-col min-h-screen transition-colors bg-black">
         <Navbar />
-        <main className="flex-grow flex flex-col">
+        <main className="flex-grow">
             {children}
         </main>
         <Footer color="#232323CC" />
