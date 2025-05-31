@@ -5,41 +5,41 @@ Server/.env
 # Frontend: See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-client/node_modules
-client/.pnp
-client/.pnp.*
-client/.yarn/*
-client/!.yarn/patches
-client/!.yarn/plugins
-client/!.yarn/releases
-client/!.yarn/versions
+Client/node_modules
+Client/.pnp
+Client/.pnp.*
+Client/.yarn/*
+Client/!.yarn/patches
+Client/!.yarn/plugins
+Client/!.yarn/releases
+Client/!.yarn/versions
 
 # testing
-client/coverage
+Client/coverage
 
 # next.js
-client/.next/
-client/out/
+Client/.next/
+Client/out/
 
 # production
-client/build
+Client/build
 
 # misc
-client/.DS_Store
-client/*.pem
+Client/.DS_Store
+Client/*.pem
 
 # debug
-client/npm-debug.log*
-client/yarn-debug.log*
-client/yarn-error.log*
-client/.pnpm-debug.log*
+Client/npm-debug.log*
+Client/yarn-debug.log*
+Client/yarn-error.log*
+Client/.pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-client/.env*
+Client/.env*
 
 # vercel
-client/.vercel
+Client/.vercel
 
 # typescript
-client/*.tsbuildinfo
-client/next-env.d.ts
+Client/*.tsbuildinfo
+Client/next-env.d.ts
