@@ -2,6 +2,7 @@ export type ImageData = {
     src: string;
     alt: string; 
     width?: number; 
+    height?: number;
 };
 
 
@@ -13,6 +14,7 @@ const images: ImageData[] = [
     {
         src: "/image2.png",
         alt: "Gallery image 2",
+        width: 400,
     }, 
     {
         src: "/image3.png",
@@ -29,6 +31,8 @@ const images: ImageData[] = [
     {
         src: "/image1.png",
         alt: "Gallery image 1", 
+        width: 400,
+        height: 400
     },
     {
         src: "/image2.png",
@@ -46,6 +50,7 @@ const images: ImageData[] = [
         src: "/image5.png",
         alt: "Gallery image 5",
         width: 400,
+        height: 400,
     },
 ];
 
