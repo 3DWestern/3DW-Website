@@ -30,11 +30,19 @@ export default function Home() {
     <div className="h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory hide-scrollbar">
   <section
     className="h-screen snap-start bg-cover bg-center bg-fixed flex items-center justify-center"
-    style={{ backgroundImage: "url('/man.jpeg')" }}
+    style={{ backgroundImage: "url('/landing.jpg')" }}
   >
     <div className="flex flex-col justify-center items-center w-full h-full bg-black/50">
       <div className="mx-auto my-14 text-center">
-      <h1 className="text-7xl md:text-8xl sm:text-9xl mb-5 whitespace-nowrap">3D Western</h1>
+
+      <div className="relative mb-5 text-7xl flex flex-col justify-centers items-center whitespace-nowrap">
+        <h1 className="absolute left-[6px] top-[6px] text-purple-500 z-0">3D WESTERN</h1>
+        <h1 className="absolute left-[3px] top-[3px] text-black z-10">3D WESTERN</h1>
+        <h1 className="relative text-white whitespace-nowrap z-20">3D WESTERN</h1>
+
+      </div>
+      
+      
       <p className="text-4xl">Western&apos;s 3D Printing Club</p>
       </div>
       <div className="flex flex-row justify-center items-center my-10 w-full max-w-md">
@@ -45,9 +53,9 @@ export default function Home() {
           JOIN US
         </a> 
         <button onClick={login} 
-        className="group/button rounded-full border border-white/50 border-4 self-end text-3xl whitespace-nowrap sm:text-4xl md:text-6xl 
-        hover:bg-gradient-to-l hover:from-white hover:to-zinc-300/60 hover:text-fuchsia-600 hover:border hover:border-fuchsia-600 
-        hover:border-4 transition-colors px-4 duration-700">
+        className="group/button rounded-full self-end text-3xl whitespace-nowrap sm:text-4xl md:text-6xl 
+        hover:bg-fuchsia-600 hover:text-white  
+        px-4 duration-700">
           PRINT NOW
         </button>
       </div>

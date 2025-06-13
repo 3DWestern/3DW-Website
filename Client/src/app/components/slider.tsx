@@ -47,8 +47,8 @@ export default function Carousel({ images }: { images: Activity[] }) {
         ))}
       </div>
       
-         {/** Desktop buttons; TODO: adjust placement */}
-          <div className="hidden md:flex absolute left-3/4 top-2/3 -translate-x-3 -translate-y-1/2 gap-0 z-10 bg-red-700 z-10">
+         {/** Desktop buttons; TODO: check md, add hover*/}
+          <div className="hidden md:flex absolute left-3/4 top-2/3 -translate-x-3 -translate-y-1/2 gap-0 z-10 z-10">
             <button
               onClick={() => {
           const active = itemRefs.current.findIndex(
@@ -56,7 +56,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
           );
           if (active > 0) scrollTo(active - 1);
         }}
-              className="bg-white/20 px-3 py-1 w-[6rem] h-[6rem] flex items-center justify-center"
+              className="bg-white/20 hover:bg-white/40 px-3 py-1 w-[6rem] h-[6rem] flex items-center justify-center"
               >
             <ArrowLeft className="w-5/6 h-5/6 cursor-pointer"/>
             </button>
@@ -67,7 +67,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
                 );
                 if (active < images.length - 1) scrollTo(active + 1);
               }}
-              className="bg-white/20 px-3 py-1 w-[6rem] h-[6rem] flex items-center justify-center"
+              className="bg-white/20 hover:bg-white/40 px-3 py-1 w-[6rem] h-[6rem] flex items-center justify-center"
               >
               <ArrowRight className="w-5/6 h-5/6 cursor-pointer"/>
             </button>
