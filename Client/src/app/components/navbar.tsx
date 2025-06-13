@@ -14,11 +14,6 @@ export default function Navbar() { // using list items and unordered list for be
                     </Link>
                 </li>
                 <li className="text-white font-bold py-2 px-4 rounded transition-transform duration-200 hover:scale-110">
-                    <Link href="/activities">
-                        Activities
-                    </Link>
-                </li>
-                <li className="text-white font-bold py-2 px-4 rounded transition-transform duration-200 hover:scale-110">
                     <Link href="/about">
                         About
                     </Link>

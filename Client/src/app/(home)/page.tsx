@@ -35,6 +35,7 @@ export default function Home() {
     <div className="flex flex-col justify-center items-center w-full h-full bg-black/50">
       <div className="mx-auto mt-20 text-center bg-blue-00">
 
+{/** TODO: Adjust mobile size on this screen ! */}
       <div className="relative mb-5 flex flex-col items-center w-fit mx-auto whitespace-nowrap bg-k">
         <h1 className="absolute left-[7px] top-1 sm:left-2 sm:top-2 text-purple-500 text-6xl sm:text-7xl md:text-9xl z-0">3D WESTERN</h1>
         <h1 className="absolute left-1 top-1 text-black text-6xl sm:text-7xl md:text-9xl z-10">3D WESTERN</h1>
