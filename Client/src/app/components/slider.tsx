@@ -21,7 +21,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
   return (
     <div className="relative w-full h-screen flex flex-col items-center justify-center">
       <div className="absolute inset-0 w-fit h-fit mt-12 mx-auto z-10">
-        <h1 className="text-white text-6xl sm:text-7xl md:text-8xl">Highlights</h1>
+        <h1 className="text-white text-6xl sm:text-7xl md:text-8xl mt-10">Highlights</h1>
       </div>
       <div
         ref={containerRef}

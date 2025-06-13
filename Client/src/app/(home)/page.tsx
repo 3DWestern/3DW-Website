@@ -29,26 +29,26 @@ export default function Home() {
   return (
     <div className="h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory hide-scrollbar">
   <section
-    className="h-screen snap-start bg-cover bg-center bg-fixed flex items-center justify-center"
+    className="w-full h-screen snap-start bg-cover bg-center bg-fixed flex items-center justify-center"
     style={{ backgroundImage: "url('/landing.jpg')" }}
   >
     <div className="flex flex-col justify-center items-center w-full h-full bg-black/50">
-      <div className="mx-auto my-14 text-center">
+      <div className="mx-auto mt-20 text-center bg-blue-00">
 
-      <div className="relative mb-5 text-7xl flex flex-col justify-centers items-center whitespace-nowrap">
-        <h1 className="absolute left-[6px] top-[6px] text-purple-500 z-0">3D WESTERN</h1>
-        <h1 className="absolute left-[3px] top-[3px] text-black z-10">3D WESTERN</h1>
-        <h1 className="relative text-white whitespace-nowrap z-20">3D WESTERN</h1>
+      <div className="relative mb-5 flex flex-col items-center w-fit mx-auto whitespace-nowrap bg-k">
+        <h1 className="absolute left-[7px] top-1 sm:left-2 sm:top-2 text-purple-500 text-6xl sm:text-7xl md:text-9xl z-0">3D WESTERN</h1>
+        <h1 className="absolute left-1 top-1 text-black text-6xl sm:text-7xl md:text-9xl z-10">3D WESTERN</h1>
+        <h1 className="relative text-white text-6xl sm:text-7xl md:text-9xl z-20">3D WESTERN</h1>
 
       </div>
       
-      
-      <p className="text-4xl">Western&apos;s 3D Printing Club</p>
+      <p className="text-2xl sm:text-3xl md:text-5xl">Western&apos;s 3D Printing Club</p>
       </div>
-      <div className="flex flex-row justify-center items-center my-10 w-full max-w-md">
+      
+      <div className="flex flex-row justify-center items-center mt-20 w-full max-w-md bg-red-700">
         <a href="https://westernusc.store/club-memberships/"
-        className="group/button rounded-full border border-white/50 border-4 self-start text-3xl whitespace-nowrap sm:text-4xl md:text-6xl 
-        hover:bg-gradient-to-l hover:from-white hover:to-zinc-300/60 hover:text-fuchsia-600 hover:border hover:border-fuchsia-600 
+        className="group/button rounded-full self-start text-3xl whitespace-nowrap sm:text-4xl md:text-6xl 
+        hover:bg-gradient-to-l hover:text-fuchsia-600 hover:border-fuchsia-600 
         hover:border-4 transition-colors px-4 duration-700 mr-5 sm:mr-10">
           JOIN US
         </a> 
@@ -63,7 +63,7 @@ export default function Home() {
   </section>
 
   <section className="h-screen snap-start border-t border-t-4 flex flex-col items-center justify-start">
-    <h1 className="text-7xl mt-20">OUR MISSION</h1>
+    <h1 className="text-8xl mt-20">OUR MISSION</h1>
     <p className={`text-3xl mt-20 whitespace-break-spaces ${kant_pro.className} mx-2 px-2 text-center`}>Insert Mission statement here. This might be a bit boring, so we can redesign this for sure.</p>
   </section>
 
