@@ -27,7 +27,7 @@ export default function Home() {
 
   // TODO: Test responsiveness; gallery on lg screens a bit squished. 
   return (
-    <div className="h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory hide-scrollbar">
+    <>
   <section
     className="w-full h-screen snap-start bg-cover bg-center bg-fixed flex items-center justify-center"
     style={{ backgroundImage: "url('/landing.jpg')" }}
@@ -82,10 +82,10 @@ export default function Home() {
   </div>
   </section>
 
-  <section className="h-1/3 snap-start flex items-center justify-center w-full mt-10">
+  <section className="snap-start flex items-center justify-center w-full mt-20">
     <Footer /> {/** The footer is fucked :) TODO: Add responsive margins */}
   </section>
-</div>
+</>
 
   );
   
