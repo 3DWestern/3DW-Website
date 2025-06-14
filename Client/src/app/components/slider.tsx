@@ -20,8 +20,13 @@ export default function Carousel({ images }: { images: Activity[] }) {
 
   return (
     <div className="relative w-full h-screen flex flex-col items-center justify-center">
-      <div className="absolute inset-0 w-fit h-fit mt-12 mx-auto z-10">
-        <h1 className="text-white text-6xl sm:text-7xl md:text-8xl mt-10">Highlights</h1>
+      <div className="absolute inset-0 w-fit h-fit mt-10 mx-auto z-10">
+        <div className="relative mb-5 flex flex-col items-center w-fit mx-auto whitespace-nowrap bg-k mt-10">
+          <h1 className="absolute left-[7px] top-1 sm:left-2 sm:top-2 text-purple-500 text-6xl sm:text-7xl md:text-8xl z-0">HIGHLIGHTS</h1>
+          <h1 className="absolute left-1 top-1 text-black text-6xl sm:text-7xl md:text-8xl z-10">HIGHLIGHTS</h1>
+          <h1 className="relative text-white text-6xl sm:text-7xl md:text-8xl z-20">HIGHLIGHTS</h1>
+        </div>
+
       </div>
       <div
         ref={containerRef}
@@ -48,7 +53,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
       </div>
       
          {/** Desktop buttons; TODO: check md, add hover*/}
-          <div className="hidden md:flex absolute left-3/4 top-2/3 -translate-x-3 -translate-y-1/2 gap-0 z-10 z-10">
+          <div className="hidden md:flex absolute left-3/4 top-2/3 -translate-x-3 -translate-y-1/2 gap-0 z-10 z-20">
             <button
               onClick={() => {
           const active = itemRefs.current.findIndex(
@@ -80,7 +85,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
           );
           if (active > 0) scrollTo(active - 1);
         }}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 px-3 py-1 w-[5rem] h-[5rem] flex items-center justify-center md:hidden z-10">
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 px-3 py-1 w-[5rem] h-[5rem] flex items-center justify-center md:hidden z-20">
             <ArrowLeft className="w-5/6 h-5/6 cursor-pointer" />
           </button>
 
@@ -90,7 +95,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
           );
           if (active < images.length - 1) scrollTo(active + 1);
         }}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 px-3 py-1 w-[5rem] h-[5rem] flex items-center justify-center md:hidden z-10">
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 px-3 py-1 w-[5rem] h-[5rem] flex items-center justify-center md:hidden z-20">
             <ArrowRight className="w-5/6 h-5/6 cursor-pointer" />
           </button>
 

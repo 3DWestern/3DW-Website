@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
   <section
-    className="w-full h-screen snap-start bg-cover bg-center bg-fixed flex items-center justify-center"
+    className="w-full h-screen bg-cover bg-fixed flex items-center justify-center"
     style={{ backgroundImage: "url('/landing.jpg')" }}
   >
     <div className="flex flex-col justify-center items-center w-full h-full bg-black/50">
@@ -40,51 +40,72 @@ export default function Home() {
         <h1 className="absolute left-[7px] top-1 sm:left-2 sm:top-2 text-purple-500 text-6xl sm:text-7xl md:text-9xl z-0">3D WESTERN</h1>
         <h1 className="absolute left-1 top-1 text-black text-6xl sm:text-7xl md:text-9xl z-10">3D WESTERN</h1>
         <h1 className="relative text-white text-6xl sm:text-7xl md:text-9xl z-20">3D WESTERN</h1>
+      </div>
 
+      <div className="relative mb-5 flex flex-col items-center w-fit mx-auto whitespace-nowrap bg-k">
+        {/**<h1 className="absolute left-[1px] top-1 sm:left-1 sm:top-1 text-purple-600 text-2xl sm:text-3xl md:text-5xl z-0">Western&apos;s 3D Printing Club</h1>*/}
+        <h2 className="relative text-white text-2xl sm:text-3xl md:text-5xl z-20">Western&apos;s 3D Printing Club</h2>
+        {/**<h2 className={`relative text-white text-2xl sm:text-3xl md:text-5xl z-20 ${kant_pro.className}`}>Western&apos;s 3D Printing Club</h2> */}
+      </div>
       </div>
       
-      <p className="text-2xl sm:text-3xl md:text-5xl">Western&apos;s 3D Printing Club</p>
-      </div>
-      
-      <div className="flex flex-row justify-center items-center mt-20 w-full max-w-md bg-red-700">
+      <div className="flex flex-row justify-center items-center mt-20 w-full max-w-md gap-10">
         <a href="https://westernusc.store/club-memberships/"
-        className="group/button rounded-full self-start text-3xl whitespace-nowrap sm:text-4xl md:text-6xl 
-        hover:bg-gradient-to-l hover:text-fuchsia-600 hover:border-fuchsia-600 
-        hover:border-4 transition-colors px-4 duration-700 mr-5 sm:mr-10">
-          JOIN US
+        className="group/button rounded-full self-start text-2xl whitespace-nowrap sm:text-2xl md:text-4xl 
+        hover:text-fuchsia-600 px-4 transition-all duration-200 transform hover:scale-110 hover:px-8">
+          Join Us
         </a> 
         <button onClick={login} 
-        className="group/button rounded-full self-end text-3xl whitespace-nowrap sm:text-4xl md:text-6xl 
-        hover:bg-fuchsia-600 hover:text-white  
-        px-4 duration-700">
-          PRINT NOW
+        className="group/button rounded-full self-end text-2xl whitespace-nowrap sm:text-2xl md:text-4xl 
+        hover:text-fuchsia-600  
+        px-4 transition-all duration-200 transform hover:scale-110 hover:px-8">
+          Print Now
         </button>
       </div>
     </div>
   </section>
 
   <section className="h-screen snap-start border-t border-t-4 flex flex-col items-center justify-start">
-    <h1 className="text-8xl mt-20">OUR MISSION</h1>
+    <div className="relative mb-5 flex flex-col items-center w-fit mx-auto whitespace-nowrap bg-k mt-20">
+        <h1 className="absolute left-[7px] top-1 sm:left-2 sm:top-2 text-purple-500 text-6xl sm:text-7xl md:text-8xl z-0">OUR MISSION</h1>
+        <h1 className="absolute left-1 top-1 text-black text-6xl sm:text-7xl md:text-8xl z-10">OUR MISSION</h1>
+        <h1 className="relative text-white text-6xl sm:text-7xl md:text-8xl z-20">OUR MISSION</h1>
+      </div>
+
     <p className={`text-3xl mt-20 whitespace-break-spaces ${kant_pro.className} mx-2 px-2 text-center`}>Insert Mission statement here. This might be a bit boring, so we can redesign this for sure.</p>
   </section>
 
-  <section className="h-screen snap-start bg-blue-200 flex items-center justify-center">
+  <section className="h-screen snap-start flex items-center justify-center">
     <Slider images={activities} />
   </section>
 
   {/** TODO: REFORMAT FLEX; Adjust margins/responsiveness if adding scroll hook for nav bar hiding */}
-  <section className="h-screen snap-start flex flex-col items-center justify-center">
-  <h1 className="text-6xl sm:text-7xl md:text-8xl mt-12">GALLERY</h1>
+  <section className="relative h-screen snap-start flex flex-col items-center justify-center">
+  
+  
+    <div className="relative flex flex-col items-center w-fit mx-auto whitespace-nowrap bg-k mt-12">
+        <h1 className="absolute left-[7px] top-1 sm:left-2 sm:top-2 text-purple-500 text-6xl sm:text-7xl md:text-8xl z-0">OUR PRINTS</h1>
+        <h1 className="absolute left-1 top-1 text-black text-6xl sm:text-7xl md:text-8xl z-10">OUR PRINTS</h1>
+        <h1 className="relative text-white text-6xl sm:text-7xl md:text-8xl z-20">OUR PRINTS</h1>
+      </div>
+
   <Images images={images}/> 
-  <div className="sm:mt-10">
-    <button onClick={gallery} className="rounded-full border border-white/50 border-4 self-end text-4xl whitespace-nowrap sm:text-5xl 
-        hover:bg-white hover:text-fuchsia-600 hover:border hover:border-fuchsia-600 
-        hover:border-4 transition-colors px-4 duration-300">See More</button>
-  </div>
+    {/** See More Button for mobile screens */}
+    <div className="absolute bottom-10 flex sm:hidden justify-center mx-auto">
+      <button onClick={gallery} className="rounded-xl border border-white/50 border-4 self-end text-4xl whitespace-nowrap
+      hover:border-fuchsia-600 hover:border-4 px-4 transition-colors duration-300">See More</button>
+    </div>
+
   </section>
 
+  <div className="hidden mt-10 sm:flex justify-center mx-auto">
+    <button onClick={gallery} className="rounded-xl border border-white/50 border-4 self-end sm:text-5xl md:text-6xl whitespace-nowrap 
+        hover:border-fuchsia-600 
+        hover:border-4 transition-colors px-5 duration-300">See More</button>
+  </div>
+
   <section className="snap-start flex items-center justify-center w-full mt-20">
-    <Footer /> {/** The footer is fucked :) TODO: Add responsive margins */}
+    <Footer /> 
   </section>
 </>
 

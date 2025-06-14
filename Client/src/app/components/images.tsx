@@ -43,15 +43,15 @@ export default function Images({ images, autoplay = true } : { images: Image[], 
     }, [autoplay, handleNext]);
     
 
-    // TODO: Adjust size of container and image when adding more images, or keep images of the same size! Most troublesome part for this container.
+    // TODO: Check copn
     return (
         <>
-        <div className="flex flex-col items-center justify-center relative w-full h-2/3 gap-y-1 sm:mt-6">
+        <div className="flex flex-col items-center justify-center relative w-full h-2/3 gap-y-1 mt-20">
                 <AnimatePresence>
                 {images.map((image, index) => (
                     <button key={index} onClick={handleNext}>
                     <motion.div
-                    className="absolute inset-0 origin-bottom w-1/2 sm:w-1/3 h-2/3 mt-20 sm:mt-0 sm:h-full mx-auto flex items-center justify-center"
+                    className="absolute inset-0 origin-bottom w-5/6 sm:w-2/3 md:w-1/3 h-2/3 sm:h-full mx-auto flex items-center justify-center"
                     initial={{
                         opacity: 0,
                         scale: 0.9,

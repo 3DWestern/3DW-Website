@@ -34,7 +34,7 @@ const teamdata: Exec[] = [
     },
     {
         name: "Doris Wang",
-        title: "Communications",
+        title: "VP Communications",
         src: "/doris.webp",
         alt: "Doris Wang, Communications",
         url: "www.linkedin.com/in/doris-w-949aa7222/", 

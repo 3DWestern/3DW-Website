@@ -72,12 +72,16 @@ export default function SignUpForm () {
                 <Message header={"Your message has been sent!"} message={"Thank you for expressing interest in us!"}/>
             ) : (
             <div className="flex flex-col justify-center items-center">
-                <div className="text-center my-10 sm:mt-20 mx-auto sm:px-5 text-white">
-                <h1 className="text-5xl sm:text-6xl mb-5 sm:mb-10">CONTACT US</h1>
+                <div className="text-center my-10 mx-auto sm:px-5 text-white">
+                    <div className="relative mb-5 flex flex-col items-center w-fit mx-auto whitespace-nowrap bg-k">
+                        <h1 className="absolute left-[7px] top-1 sm:left-2 sm:top-2 text-purple-500 text-6xl sm:text-7xl md:text-9xl z-0">CONTACT US</h1>
+                        <h1 className="absolute left-1 top-1 text-black text-6xl sm:text-7xl md:text-9xl z-10">CONTACT US</h1>
+                        <h1 className="relative text-white text-6xl sm:text-7xl md:text-9xl z-20">CONTACT US</h1>
+                </div>
                 <p className={`${kantPro.className} text-xl sm:text-2xl w-2/3 mx-auto`}>We are actively seeking sponsors and collaborators to take our projects to the next level. Connect with us and let&apos;s discuss how we can build something amazing together.</p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center mb-5 sm:my-12 sm:mb-10 mx-auto w-[23rem] sm:w-[40rem] text-black">
+                <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center mb-5 sm:mb-10 mx-auto w-[23rem] sm:w-[40rem] text-black">
                     <input placeholder="Bill Gates" 
                     className="w-full h-10 sm:h-8 px-2 rounded-full mb-3 focus:outline-none focus:ring-2 focus:ring-purple-500" 
                     value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value})} required/>
