@@ -3,8 +3,6 @@ import React from 'react';
 import Image from 'next/image';
 import Tilt from 'react-parallax-tilt';
 
-// the glare doesn't quite work; TODO: add md/sm responsiveness, adjust the grid a bit more and sort out component tree 
-
 type Exec = { // duplicated this to avoid execssive importing down the component tree. 
     name: string;
     title: string;
@@ -28,7 +26,7 @@ export default function Execs ({execs} : {execs: Exec[]}) {
                    tiltMaxAngleX={25}
                    tiltMaxAngleY={25}
                    className="flex-shrink-0 m-10 rounded-xl max-w-xs">
-                   <a className="flex flex-col items-center justify-center z-50" href={"https://" + data.url}>
+                   <a className="flex flex-col items-center justify-center z-50" href={"https://" + data.url} target="_blank" rel="noopener noreferrer">
                     <Image 
                         width={180}
                         height={320}

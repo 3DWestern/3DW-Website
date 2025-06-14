@@ -6,7 +6,11 @@ import Execs from '.././components/execs'
 export default function About () {
     return (
         <div className=" mt-10 flex flex-wrap flex-col justify-center items-center">
-            <h1 className="text-5xl sm:text-7xl my-auto mx-auto text-center text-white">MEET THE TEAM</h1>
+            <div className="relative mb-5 flex flex-col items-center w-fit mx-auto whitespace-nowrap bg-k">
+                <h1 className="absolute left-[7px] top-1 sm:left-2 sm:top-2 text-purple-500 text-6xl sm:text-7xl md:text-9xl z-0">MEET THE TEAM</h1>
+                <h1 className="absolute left-1 top-1 text-black text-6xl sm:text-7xl md:text-9xl z-10">MEET THE TEAM</h1>
+                <h1 className="relative text-white text-6xl sm:text-7xl md:text-9xl z-20">MEET THE TEAM</h1>
+            </div>
             <Execs execs={teamdata}/>
         </div>
     );
