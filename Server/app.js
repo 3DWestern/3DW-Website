@@ -74,12 +74,13 @@ app.post("/save-email", async (req, res) => {
   const newsletter_emails = database.collection('newsletter_emails');
   try {
     await newsletter_emails.insertOne({ "_id": email });
-    res.send("Added email to mailing list\n").status(200);
   } catch (error) {
-    if (error.code === 11000) res.send("Email already in mailing list").status(400);
-    else res.send(error).status(500);
+    if (error.code === 11000) res.json({message: "Email already in mailing list"}).status(400);
+    else res.json({message: error}).status(500);
+    return;
   }
 
+  res.json({message: "Added email to mailing list\n"}).status(200);
 })
 
 app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
