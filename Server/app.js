@@ -4,9 +4,9 @@ dotenv.config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const authRoutes = require("./routes/authRoutes.js");
-const accountRoutes = require("./routes/accountRoutes.js");
-const adminRoutes = require("./routes/adminRoutes.js");
+// const authRoutes = require("./routes/authRoutes.js");
+// const accountRoutes = require("./routes/accountRoutes.js");
+// const adminRoutes = require("./routes/adminRoutes.js");
 const cookieParser = require("cookie-parser");
 const { MongoClient } = require("mongodb");
 
@@ -23,43 +23,60 @@ app.use(
   })
 );
 
-app.get("/hello", (req, res) => {
-  res.send({message: "Saluton, la mondo!"})
-})
+// app.get("/hello", (req, res) => {
+//   res.send({message: "Saluton, la mondo!"})
+// })
 
-/*
-  Temporary routes to test database connection
-*/
-app.get("/users", async (req, res) => {
-  const users = database.collection('users');
+// /*
+//   Temporary routes to test database connection
+// */
+// app.get("/users", async (req, res) => {
+//   const users = database.collection('users');
 
-  const query = {}; // to get all users
-  const results = await users.find(query).toArray(); // search database
+//   const query = {}; // to get all users
+//   const results = await users.find(query).toArray(); // search database
 
-  res.send(results)
-})
+//   res.send(results)
+// })
 
-app.get("/jobs", async (req, res) => {
-  const printJobs = database.collection('print_jobs');
-  const results = await printJobs.find({}).toArray();
-  res.send(results)
-})
+// app.get("/jobs", async (req, res) => {
+//   const printJobs = database.collection('print_jobs');
+//   const results = await printJobs.find({}).toArray();
+//   res.send(results)
+// })
 
-app.get("/cost", async (req, res) => {
-  const printJobs = database.collection('print_jobs');
-  const results = await printJobs.aggregate([{$group: {_id: null, totalCost: {$sum: "$purchase_info.cost"}}}]).toArray()
-  res.send(results);
-})
+// app.get("/cost", async (req, res) => {
+//   const printJobs = database.collection('print_jobs');
+//   const results = await printJobs.aggregate([{$group: {_id: null, totalCost: {$sum: "$purchase_info.cost"}}}]).toArray()
+//   res.send(results);
+// })
 
 app.use(cookieParser());
 
 app.use(bodyParser.json())
 
 //app.use("/api/auth", authRoutes);
-app.use("/api/account", accountRoutes);
+// app.use("/api/account", accountRoutes);
 
-app.use("/api/admin", adminRoutes);
+// app.use("/api/admin", adminRoutes);
 
-app.use(cookieParser());
+app.post("/save-email", async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    res.send("Error: No email specified\n").status(400)
+    return;
+  }
+
+  const newsletter_emails = database.collection('newsletter_emails');
+  try {
+    await newsletter_emails.insertOne({"_id": email});
+    res.send("Added email to mailing list\n").status(200);
+  } catch (error) {
+    if (error.code === 11000) res.send("Email already in mailing list").status(400);
+    else res.send(error).status(500);
+  }
+
+})
 
 app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
