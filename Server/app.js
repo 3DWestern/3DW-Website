@@ -4,6 +4,7 @@ dotenv.config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const mongoSanitize = require("express-mongo-sanitize");
 // const authRoutes = require("./routes/authRoutes.js");
 // const accountRoutes = require("./routes/accountRoutes.js");
 // const adminRoutes = require("./routes/adminRoutes.js");
@@ -52,8 +53,10 @@ app.use(
 // })
 
 app.use(cookieParser());
-
 app.use(bodyParser.json())
+app.use(mongoSanitize({
+  replaceWith: '_',
+}));
 
 //app.use("/api/auth", authRoutes);
 // app.use("/api/account", accountRoutes);
@@ -70,7 +73,7 @@ app.post("/save-email", async (req, res) => {
 
   const newsletter_emails = database.collection('newsletter_emails');
   try {
-    await newsletter_emails.insertOne({"_id": email});
+    await newsletter_emails.insertOne({ "_id": email });
     res.send("Added email to mailing list\n").status(200);
   } catch (error) {
     if (error.code === 11000) res.send("Email already in mailing list").status(400);
