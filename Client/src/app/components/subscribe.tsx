@@ -12,12 +12,13 @@ export default function Subscribe() {
         if (!email.trim()) {
             return; // prevent empty email 
         }
-        const response = await fetch("/api/subscribe", { // placeholder API endpoint for Next
+
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/save-email`, { // placeholder API endpoint for Next
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email }),
+            body: JSON.stringify({email: email}),
         });
 
         const data = await response.json();
