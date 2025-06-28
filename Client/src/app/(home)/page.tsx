@@ -5,6 +5,7 @@ import Footer from '../components/footer';
 import { useRouter } from 'next/navigation';
 import Slider from '../components/slider';
 import { activities, images } from './data';
+import Image from 'next/image';
 
 // TODO: Adjust snapping 
 // load the font here 
@@ -62,17 +63,18 @@ export default function Home() {
               Print Now
             </button>
           </div>
+          <p className={`text-md md:text-lg whitespace-break-spaces mt-20 text-shadow-lg ${kant_pro.className} mx-10 px-10 md:w-[50%] text-center`}>Our mission is to equip Western students with the tools and experience to design, create, and innovate through 3D printing. By fostering hands-on learning and technical growth, we bridge the gap between theory and creation.</p>
         </div>
       </section>
 
-      <section className="h-screen snap-start border-t border-t-4 flex flex-col items-center justify-start">
-        <div className="relative mb-5 flex flex-col items-center w-fit mx-auto whitespace-nowrap bg-k mt-20">
+      <section className="h-screen snap-start border-t border-t-4 flex flex-col items-center justify-around h-full py-10 hidden">
+        <div className="relative flex flex-col items-center w-fit mx-auto whitespace-nowrap bg-k">
           <h1 className="absolute left-[7px] top-1 sm:left-2 sm:top-2 text-purple-500 text-6xl sm:text-7xl md:text-8xl z-0 select-none">OUR MISSION</h1>
           <h1 className="absolute left-1 top-1 text-black text-6xl sm:text-7xl md:text-8xl z-10 select-none">OUR MISSION</h1>
           <h1 className="relative text-white text-6xl sm:text-7xl md:text-8xl z-20">OUR MISSION</h1>
         </div>
 
-        <p className={`text-3xl mt-20 whitespace-break-spaces ${kant_pro.className} mx-2 px-2 text-center`}>Insert Mission statement here. This might be a bit boring, so we can redesign this for sure.</p>
+        <p className={`text-2xl md:text-3xl whitespace-break-spaces ${kant_pro.className} mx-10 px-10 text-center`}>Our mission is to equip Western students with the tools and experience to design, create, and innovate through 3D printing. By fostering hands-on learning and technical growth, we bridge the gap between theory and creation.</p>
       </section>
 
       <section className="h-screen snap-start flex items-center justify-center">
