@@ -72,7 +72,14 @@ export default function LoginForm() {
                         <div className="self-start mb-2"><h1 className="text-black text-xl sm:text-2xl dark:text-white">Password</h1></div>
                         <input type="password" placeholder="mypassword" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                             className="text-black dark:text-white dark:bg-black/0 h-12 w-full sm:w-80 rounded-md border border-black dark:border-white px-2" required />
-                        <Link href="/forgotpassword" className="underline text-black dark:text-white p-2 text-lg mt-1">Forgot password?</Link>
+                        <Link
+                            href="/forgotpassword"
+                            className="underline text-black dark:text-white p-2 text-lg mt-1 pointer-events-none"
+                            aria-disabled={true}
+                            tabIndex={-1}
+                        >
+                            Forgot password?
+                        </Link>
                     </div>
 
                     <div className="text-white bg-black dark:bg-gradient-to-r dark:from-fuchsia-800 dark:via-fuchsia-700 dark:to-purple-400 rounded-full text-center my-1 sm:my-3">
@@ -82,7 +89,14 @@ export default function LoginForm() {
             </form>
 
             {error && <p className="text-md text-red-500">{error}</p>}
-            <Link href="/signup" className="underline text-black dark:text-white my-5 sm:mb-3 text-lg sm:text-xl">Sign up</Link>
+            <Link
+                href="/signup"
+                className="underline text-black dark:text-white my-5 sm:mb-3 text-lg sm:text-xl pointer-events-none"
+                aria-disabled={true}
+                tabIndex={-1}
+            >
+                Sign up
+            </Link>
         </div>
     );
 }
