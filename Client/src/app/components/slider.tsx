@@ -43,7 +43,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
               src={img.src}
               alt={img.alt}
               fill
-              className="object-cover"
+              className="object-cover select-none"
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-black/30 pointer-events-none" />

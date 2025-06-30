@@ -21,7 +21,7 @@ const teamdata: Exec[] = [
         title: "VP Events",
         src: "/emma.webp",
         alt: "Emma, VP Events",
-        url: "/not-found", // TODO: Find link 
+        url: "", // TODO: Find link 
         bgColor: "bg-teal-500"
     },
     {
@@ -59,7 +59,7 @@ const teamdata: Exec[] = [
     {
         name: "Kyler See",
         title: "VP Outreach",
-        src: "/kyler.webp", // TODO: Get image 
+        src: "", // TODO: Get image 
         alt: "Kyler See, VP Outreach",
         url: "www.linkedin.com/in/kyler-see/?originalSubdomain=ca",
         bgColor: "bg-purple-500", 
