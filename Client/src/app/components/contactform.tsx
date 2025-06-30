@@ -78,10 +78,10 @@ export default function SignUpForm() {
                                 <h1 className="absolute left-1 top-1 text-black text-6xl sm:text-7xl md:text-9xl z-10 select-none">CONTACT US</h1>
                                 <h1 className="relative text-white text-6xl sm:text-7xl md:text-9xl z-20">CONTACT US</h1>
                             </div>
-                            <p className={`${kantPro.className} text-xl sm:text-2xl w-2/3 mx-auto`}>We are actively seeking sponsors and collaborators to take our projects to the next level. Connect with us and let&apos;s discuss how we can build something amazing together.</p>
+                            <p className={`${kantPro.className} text-xl sm:text-2xl md:w-2/3 mx-auto`}>We are actively seeking sponsors and collaborators to take our projects to the next level. Connect with us and let&apos;s discuss how we can build something amazing together.</p>
                         </div>
 
-                        <form action="https://api.web3forms.com/submit" method="POST" className="flex flex-col justify-center items-center mb-5 sm:mb-10 mx-auto w-[23rem] sm:w-[40rem] text-black">
+                        <form action="https://api.web3forms.com/submit" method="POST" className="text-xl flex flex-col justify-center items-center mb-5 sm:mb-10 mx-auto w-[23rem] sm:w-[40rem] text-black">
                             {/* Access token */}
                             <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3_API_KEY}></input>
 

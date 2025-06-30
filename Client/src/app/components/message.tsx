@@ -4,7 +4,7 @@ import ShineBorder from './shineborder';
 // A temporary message component for incoming changes. NOTE: Ignore the img optimization suggestion, since Image does not work on gifs.
 export default function Message ({ message, header } : { message: string, header: string }) {
     return (
-        <div className="overflow-hidden relative my-10 mx-auto w-1/2 bg-white rounded-lg h-[25rem] md:h-[20rem]">
+        <div className="overflow-hidden relative my-10 mx-auto md:w-1/2 bg-white rounded-lg h-[25rem] md:h-[20rem]">
             <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
             <Image 
             src="/amongus.png" 
