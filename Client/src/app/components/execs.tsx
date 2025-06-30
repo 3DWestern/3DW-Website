@@ -33,6 +33,7 @@ export default function Execs({ execs }: { execs: Exec[] }) {
                                     height={100}
                                     alt={data.alt}
                                     src={data.src || "/blank.webp"}
+                                    unoptimized={true}
                                     className="object-cover my-2 w-40 h-40 text-white rounded-xl"
                                 />
                                 <div className="p-1 my-3 text-center text-white">
