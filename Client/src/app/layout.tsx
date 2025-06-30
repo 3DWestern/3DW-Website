@@ -23,11 +23,25 @@ export const metadata: Metadata = {
   title: "3D Western",
   description: "Western University's Official 3D Printing Club",
   keywords: ["3D Printing", "Western University", "3D Western", "Engineering", "Western Printing Club"],
-  creator: "3D Western Devs",
   publisher: "3D Western",
+  openGraph: {
+	title: "3D Western",
+	description: "Western University's Official 3D Printing Club",
+	url: "https://3dwestern.ca", // TODO: Change the domain name 
+	siteName: "3D Western",
+	// TODO: images 
+	images: ["/favicon.ico"], 
+	locale: "en_US",
+	type: "website",
+  },
+  icons: { // TODO: Optimize icons for platforms 
+	icon: '/favicon.ico',
+	shortcut: '/favicon.ico',
+	apple: '/favicon.ico',
+  },
   robots: {
     index: true,
-    follow:true,
+    follow: true,
     nocache: false,
     googleBot: {
       index: true,
@@ -35,6 +49,13 @@ export const metadata: Metadata = {
       noimageindex: false,
     },
   },
+  twitter: {
+  	card: "summary_large_image",
+  	title: "3D Western",
+  	description: "Western University's Official 3D Printing Club",
+  	images: ["/favicon.ico"], // same as Open Graph
+  //	creator: "@yourTwitterHandle", // optional
+},
 };
 
 export default function RootLayout({
