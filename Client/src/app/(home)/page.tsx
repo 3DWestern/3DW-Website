@@ -40,7 +40,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-row gap-10 justify-center items-center mt-20 w-full max-w-md">
-            <a href="https://westernusc.store/club-memberships/"
+            <a href="https://westernusc.store/club-memberships/" target="_blank" rel="noopener noreferrer"
               className="self-start px-4 text-2xl whitespace-nowrap rounded-full transition-all duration-200 transform sm:text-2xl md:text-4xl 
               border border-2 border-white text-white hover:px-8 hover:text-fuchsia-600 hover:border-4 hover:border-fuchsia-600 hover:scale-110 group/button">
               Join Us
