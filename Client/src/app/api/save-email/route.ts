@@ -28,6 +28,7 @@ export async function POST(req: NextRequest) {
     return new Response(JSON.stringify({ message: 'Email saved' }), {
       status: 200,
     })
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     if (err.code === 11000) {
       return new Response(JSON.stringify({ message: 'Email already exists' }), {
