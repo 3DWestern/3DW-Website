@@ -21,7 +21,7 @@ const teamdata: Exec[] = [
         title: "VP Events",
         src: "/emma.webp",
         alt: "Emma, VP Events",
-        url: "", // TODO: Find link 
+        url: "https://www.linkedin.com/in/emma-zhang-b99108289/", 
         bgColor: "bg-teal-500"
     },
     {
@@ -35,7 +35,7 @@ const teamdata: Exec[] = [
     {
         name: "Doris Wang",
         title: "VP Communications",
-        src: "/doris.webp",
+        src: "/doris-headshot.png",
         alt: "Doris Wang, Communications",
         url: "www.linkedin.com/in/doris-w-949aa7222/", 
         bgColor: "bg-teal-500",
@@ -65,7 +65,7 @@ const teamdata: Exec[] = [
         bgColor: "bg-purple-500", 
     }, 
     {
-        name: "Justin",
+        name: "Justin Lee",
         title: "VP Projects",
         src: "/justin.webp", // TODO: Double check link 
         alt: "Justin, VP Projects",
