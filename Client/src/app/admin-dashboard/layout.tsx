@@ -1,4 +1,4 @@
-import Footer from '../../components/footer';
+import Footer from '@/components/footer';
 
 export default function AdminDashLayout ({children} : {children: React.ReactNode}) { // TODO: Change the color later 
    return(
