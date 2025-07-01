@@ -4,29 +4,26 @@ import type { Activity } from '../components/slider';
 
 export const activities: Activity[] = [
     {
-        src: "/Image2.png",
-        alt: "Instagram image",
-        header: "Dummy header 2",
-        desc: "Dummy desc 2",
+        src: "/agm24.webp",
+        alt: "AGM 2024",
+        header: "AGM 2024",
+        desc: "",
+        link: "https://instagram.com",
       },
     { 
-        src: "/Image3.png",
-        alt: "Linkedin image",
-        header: "Dummy header 3",
-        desc: "dummy desc 3",
+        src: "/valentines25.webp",
+        alt: "Valentine's Day",
+        header: "Valentine's Day",
+        desc: "",
+        link: "https://instagram.com",
       },
     {
-        src: "/Image4.png",
-        alt: "Image of mail",
-        header: "Dummy header 4",
-        desc: "Dummy desc 4",
+        src: "/print_workshop.webp",
+        alt: "Print Workshop",
+        header: "Print Workshop",
+        desc: "",
+        link: "https://instagram.com",
       },
-    { 
-        src: "/Image5.png",
-        alt: "Image of Send",
-        header: "Day at the Workshop",
-        desc: "Dummy desc 5",
-      }, 
 ];
 
 

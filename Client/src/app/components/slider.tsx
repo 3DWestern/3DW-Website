@@ -8,6 +8,7 @@ export type Activity = {
   alt: string;
   header: string;
   desc: string;
+  link: string; 
 };
 // TODO: Map each string to render along with each page as well, adjust position, responsiveness and styling. Add the dots back.
 export default function Carousel({ images }: { images: Activity[] }) {
@@ -21,7 +22,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
   return (
     <div className="relative w-full h-screen flex flex-col items-center justify-center">
       <div className="absolute inset-0 w-fit h-fit mt-10 mx-auto z-10">
-        <div className="relative mb-5 flex flex-col items-center w-fit mx-auto whitespace-nowrap bg-k mt-10">
+        <div className="relative mb-5 flex flex-col items-center w-fit mx-auto whitespace-nowrap mt-10">
           <h1 className="absolute left-[7px] top-1 sm:left-2 sm:top-2 text-purple-500 text-6xl sm:text-7xl md:text-8xl z-0">HIGHLIGHTS</h1>
           <h1 className="absolute left-1 top-1 text-black text-6xl sm:text-7xl md:text-8xl z-10">HIGHLIGHTS</h1>
           <h1 className="relative text-white text-6xl sm:text-7xl md:text-8xl z-20">HIGHLIGHTS</h1>
@@ -46,14 +47,30 @@ export default function Carousel({ images }: { images: Activity[] }) {
               className="object-cover select-none"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-black/30 pointer-events-none" />
-            <h1 className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-2xl z-10">{img.header}</h1>
+            <div className="absolute inset-0 bg-black/50 pointer-events-none" />
+
+            <div className="absolute top-[20rem] sm:left-20 z-10 flex flex-col items-center justify-center">
+            <h1 className="text-white text-5xl sm:text-7xl">{img.header}</h1>
+            <div className="items-start">
+            <a href={img.link} target="_blank" rel="" className="bg-white/50 rounded-lg text-3xl p-2 sm:text-5xl mt-20 sm:p-4 relative flex flex-col items-center justify-center overflow-hidden">
+              <span className="absolute left-[6px] top-[11px] sm:left-[11px] sm:top-[21px] text-fuchsia-500 opacity-60 blur-sm z-10 select-none pointer-events-none">
+                  LEARN MORE
+                </span>
+                <span className="absolute left-[5px] top-[10px] sm:left-[20px] sm:top-[20px] text-black opacity-70 z-0 select-none pointer-events-none">
+                  LEARN MORE
+                </span>
+                <span className="relative text-white z-20 font-bold drop-shadow-lg">
+                  LEARN MORE
+                </span>
+              </a>
+            </div>
+            </div>
           </div>
         ))}
       </div>
       
          {/** Desktop buttons; TODO: check md, add hover*/}
-          <div className="hidden md:flex absolute left-3/4 top-2/3 -translate-x-3 -translate-y-1/2 gap-0 z-10 z-20">
+          <div className="hidden md:flex absolute left-3/4 top-3/4 -translate-x-3 -translate-y-1/2 gap-0 z-10 z-20">
             <button
               onClick={() => {
           const active = itemRefs.current.findIndex(
@@ -85,7 +102,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
           );
           if (active > 0) scrollTo(active - 1);
         }}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 px-3 py-1 w-[5rem] h-[5rem] flex items-center justify-center md:hidden z-20">
+          className="absolute hover:bg-white/40 left-2 top-1/2 -translate-y-1/2 bg-white/20 px-3 py-1 w-[5rem] h-[5rem] flex items-center justify-center md:hidden z-20">
             <ArrowLeft className="w-5/6 h-5/6 cursor-pointer" />
           </button>
 
@@ -95,7 +112,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
           );
           if (active < images.length - 1) scrollTo(active + 1);
         }}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 px-3 py-1 w-[5rem] h-[5rem] flex items-center justify-center md:hidden z-20">
+          className="absolute hover:bg-white/40 right-2 top-1/2 -translate-y-1/2 bg-white/20 px-3 py-1 w-[5rem] h-[5rem] flex items-center justify-center md:hidden z-20">
             <ArrowRight className="w-5/6 h-5/6 cursor-pointer" />
           </button>
 
