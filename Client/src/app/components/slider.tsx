@@ -10,7 +10,6 @@ export type Activity = {
   desc: string;
   link: string; 
 };
-// TODO: Map each string to render along with each page as well, adjust position, responsiveness and styling. Add the dots back.
 export default function Carousel({ images }: { images: Activity[] }) {
   const containerRef = useRef<HTMLDivElement|null>(null);
   const itemRefs = useRef<(HTMLDivElement|null)[]>([]);
@@ -37,7 +36,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
         {images.map((img, idx) => (
           <div
             key={img.src}
-            ref={el => (itemRefs.current[idx] = el)}
+            ref={el => { itemRefs.current[idx] = el; }}
             className="flex-shrink-0 w-full h-full snap-center flex items-center justify-center relative"
           >
             <Image
