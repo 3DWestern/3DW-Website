@@ -35,7 +35,7 @@ export default function SignUpForm() {
     const [error, setError] = useState("");
     //const router = useRouter(); // routing after auth 
 
-    const handleSubmit = async (e: React.FormEvent) => { // TODO: Ask about signing up API, whether any more middleware for registering before dashboard page
+    const handleSubmit = async (e: React.FormEvent) => { 
         e.preventDefault();
 
         const trimmedEmail = formData.email.trim();
@@ -47,7 +47,7 @@ export default function SignUpForm() {
         }
 
 
-        await postReq('http://localhost:5000/api/contact/', { // TODO: Check the format w/ Josh and integrate! 
+        await postReq('http://localhost:5000/api/contact/', { 
             name: trimmedName,
             email: trimmedEmail,
             message: trimmedMsg,

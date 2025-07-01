@@ -27,10 +27,16 @@ export const metadata: Metadata = {
   openGraph: {
 	title: "3D Western",
 	description: "Western University's Official 3D Printing Club",
-	url: "https://3dwestern.ca", // TODO: Change the domain name 
+	url: "https://3dwestern.ca", 
 	siteName: "3D Western",
-	// TODO: images 
-	images: ["/favicon.ico"], 
+	images: [
+    {
+      url: "https://3dwestern.ca/banner.png",
+      width: 1200,
+      height: 630,
+      alt: "3D Western: Western University's Official 3D Printing Club",
+    },
+  ],  
 	locale: "en_US",
 	type: "website",
   },
@@ -53,7 +59,14 @@ export const metadata: Metadata = {
   	card: "summary_large_image",
   	title: "3D Western",
   	description: "Western University's Official 3D Printing Club",
-  	images: ["/favicon.ico"], // same as Open Graph
+  	images: [
+      {
+        url: "https://3dwestern.ca/banner.png",
+        width: 1200,
+        height: 630,
+        alt: "3D Western: Western University's Official 3D Printing Club",
+      },
+    ], 
   //	creator: "@yourTwitterHandle", // optional
 },
 };
