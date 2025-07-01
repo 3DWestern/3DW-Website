@@ -8,21 +8,21 @@ export const activities: Activity[] = [
         alt: "AGM 2024",
         header: "AGM 2024",
         desc: "",
-        link: "https://instagram.com",
+        link: "https://www.instagram.com/3dwestern/",
       },
     { 
         src: "/valentines25.webp",
         alt: "Valentine's Day",
         header: "Valentine's Day",
         desc: "",
-        link: "https://instagram.com",
+        link: "https://www.instagram.com/3dwestern/",
       },
     {
         src: "/print_workshop.webp",
         alt: "Print Workshop",
         header: "Print Workshop",
         desc: "",
-        link: "https://instagram.com",
+        link: "https://www.instagram.com/p/DH6yZUSS4b_/?utm_source=ig_web_copy_link&igsh=M2hpM3E3azB4cmNq",
       },
 ];
 

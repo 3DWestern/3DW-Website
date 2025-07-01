@@ -11,7 +11,7 @@ interface IconProps {
 export default function Icon({ link, src, alt }: IconProps) {
     return (
         <>
-            <a href={link}><img src={src} alt={alt} className="w-9 h-9 select-none" /></a>
+            <a href={link} target="_blank" rel="noopener noreferrer"><img src={src} alt={alt} className="w-9 h-9 select-none" /></a>
         </>
     )
 }

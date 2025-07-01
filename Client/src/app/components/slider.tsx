@@ -52,7 +52,7 @@ export default function Carousel({ images }: { images: Activity[] }) {
             <div className="absolute top-[20rem] sm:left-20 z-10 flex flex-col items-center justify-center">
             <h1 className="text-white text-5xl sm:text-7xl">{img.header}</h1>
             <div className="items-start">
-            <a href={img.link} target="_blank" rel="" className="bg-white/50 rounded-lg text-3xl p-2 sm:text-5xl mt-20 sm:p-4 relative flex flex-col items-center justify-center overflow-hidden">
+            <a href={img.link} target="_blank" rel="noopener noreferrer" className="bg-white/50 rounded-lg text-3xl p-2 sm:text-5xl mt-20 sm:p-4 relative flex flex-col items-center justify-center overflow-hidden">
               <span className="absolute left-[6px] top-[11px] sm:left-[11px] sm:top-[21px] text-fuchsia-500 opacity-60 blur-sm z-10 select-none pointer-events-none">
                   LEARN MORE
                 </span>
