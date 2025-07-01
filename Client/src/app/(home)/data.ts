@@ -1,5 +1,5 @@
-import type { Image } from '../../components/images';
-import type { Activity } from '../../components/slider';
+import type { Image } from '@/components/images';
+import type { Activity } from '@/components/slider';
 
 
 export const activities: Activity[] = [
@@ -30,19 +30,19 @@ export const activities: Activity[] = [
 
 export const images: Image[] = [
     {
-        src: "/Image2.png",
+        src: "/image2.png",
         alt: "Instagram image",
       },
     { 
-        src: "/Image3.png",
+        src: "/image3.png",
         alt: "Linkedin image",
       },
     {
-        src: "/Image4.png",
+        src: "/image4.png",
         alt: "Image of mail",
       },
     { 
-        src: "/Image5.png",
+        src: "/image5.png",
         alt: "Image of Send",
       }, 
 ];

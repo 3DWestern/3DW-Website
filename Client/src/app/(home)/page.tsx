@@ -1,8 +1,8 @@
 'use client';
-import Images from '../../components/images';
+import Images from '@/components/images';
 import { Kantumruy_Pro } from 'next/font/google';
-import Footer from '../../components/footer';
-import Slider from '../../components/slider';
+import Footer from '@/components/footer';
+import Slider from '@/components/slider';
 import { activities, images } from './data';
 import Image from 'next/image';
 import { Background, Parallax } from 'react-parallax';
