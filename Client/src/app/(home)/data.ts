@@ -1,5 +1,5 @@
-import type { Image } from '../components/images';
-import type { Activity } from '../components/slider';
+import type { Image } from '../../components/images';
+import type { Activity } from '../../components/slider';
 
 
 export const activities: Activity[] = [

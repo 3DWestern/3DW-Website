@@ -1,6 +1,6 @@
 import React from 'react';
 import teamdata from '../about/teamdata';
-import Execs from '.././components/execs'
+import Execs from '../../components/execs'
 
 // Will add CUBO in the very near future.
 export default function About () {

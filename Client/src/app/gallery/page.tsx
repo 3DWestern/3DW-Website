@@ -1,6 +1,6 @@
 import React from 'react'; 
 import images from '../gallery/images';
-import Grid from '.././components/grid';
+import Grid from '../../components/grid';
 
 export default function Gallery () {
     return (

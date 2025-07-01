@@ -1,5 +1,5 @@
-import Footer from '../components/footer';
-import Navbar from '../components/navbar';
+import Footer from '../../components/footer';
+import Navbar from '../../components/navbar';
 
 export default function LoginLayout ({children} : {children: React.ReactNode}) {
    return(

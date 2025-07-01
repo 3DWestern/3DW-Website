@@ -1,4 +1,4 @@
-import Navbar from '../components/navbar';
+import Navbar from '../../components/navbar';
 
 
 export default function HomeLayout ({children} : {children: React.ReactNode}) {
