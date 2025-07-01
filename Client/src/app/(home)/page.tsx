@@ -20,9 +20,9 @@ export default function Home() {
   return (
     <>
       <Parallax className="flex flex-col justify-center items-center w-full h-screen" strength={500}>
-	<Background className="w-screen h-screen"> 
-		<Image src='/landing.jpg' alt="3D Western Landing image" layout="fill" objectFit="cover" quality={100}/>
-	</Background>
+        <Background className="w-screen h-screen">
+          <Image src='/landing.jpg' alt="3D Western Landing image" layout="fill" objectFit="cover" quality={100} />
+        </Background>
         <div className="flex flex-col justify-center items-center w-full h-screen bg-black/50">
           <div className="mx-auto mt-20 text-center">
 
@@ -51,7 +51,7 @@ export default function Home() {
               Print Now
             </Link>
           </div>
-          <p className={`text-md md:text-lg whitespace-break-spaces mt-20 text-shadow-lg ${kant_pro.className} mx-10 px-10 md:w-[50%] text-center`}>Our mission is to equip Western students with the tools and experience to design, create, and innovate through 3D printing. By fostering hands-on learning and technical growth, we bridge the gap between theory and creation.</p>
+          <p className={`text-md md:text-lg whitespace-break-spaces mt-20 text-shadow-lg ${kant_pro.className} px-5 mx-5 md:mx-10 md:px-10 md:w-[50%] text-center`}>Our mission is to equip Western students with the tools and experience to design, create, and innovate through 3D printing. By fostering hands-on learning and technical growth, we bridge the gap between theory and creation.</p>
         </div>
       </Parallax>
 

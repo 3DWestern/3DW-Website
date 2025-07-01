@@ -65,9 +65,9 @@ const teamdata: Exec[] = [
         bgColor: "bg-purple-500", 
     }, 
     {
-        name: "Justin Lee",
+        name: "Justin Liu",
         title: "VP Projects",
-        src: "/justin.webp", // TODO: Double check link 
+        src: "/justin.webp", 
         alt: "Justin, VP Projects",
         url: "www.linkedin.com/in/zhangjinliu/", 
         bgColor: "bg-purple-500"
