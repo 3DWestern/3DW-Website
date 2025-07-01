@@ -2,7 +2,7 @@
 'use client'; 
 import { useState } from 'react';
 
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function UsePostRequest<PayLoad=any, Response=any>() { // ignore any warning for this hook.
 
     const [error, setError] = useState<string | null>(null);

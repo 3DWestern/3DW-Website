@@ -12,8 +12,8 @@ export type Activity = {
 };
 // TODO: Map each string to render along with each page as well, adjust position, responsiveness and styling. Add the dots back.
 export default function Carousel({ images }: { images: Activity[] }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement|null>(null);
+  const itemRefs = useRef<(HTMLDivElement|null)[]>([]);
 
   const scrollTo = (idx: number) => {
     itemRefs.current[idx]?.scrollIntoView({ behavior: "smooth", inline: "center" });
