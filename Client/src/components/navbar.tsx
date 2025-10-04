@@ -6,7 +6,7 @@ export default function Navbar() { // using list items and unordered list for be
     const scrollDir = useScrollDirection();
 
     return (
-        <nav className={`sticky top-0 z-50 p-4 w-full bg-black/70 transition-transform duration-300 ${scrollDir === 'down' ? "-translate-y-full" : "translate-y-0"}`}>
+        <nav className={`sticky top-0 z-50 p-7 w-full bg-black/70 transition-transform duration-300 ${scrollDir === 'down' ? "-translate-y-full" : "translate-y-0"}`}>
             <ul className="flex flex-row justify-between md:justify-around sm:px-3 items-center text-white text-xl md:text-3xl font-medium sm:font-bold sm:text-2xl gap-x-3 sm:gap-x-1">
                 <li className="text-white font-bold rounded transition-transform duration-200 hover:scale-110">
                     <Link href="/">

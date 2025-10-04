@@ -7,6 +7,3 @@ export default function Login() { // login page for auth
         </div>
     );
 }
-
-
-

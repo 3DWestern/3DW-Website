@@ -18,7 +18,7 @@ const kant_pro = Kantumruy_Pro({
 export default function Home() {
 
   return (
-    <>
+    <div className="pb-10">
       <Parallax className="flex flex-col justify-center items-center w-full h-screen" strength={500}>
         <Background className="w-screen h-screen">
           <Image src='/landing.jpg' alt="3D Western Landing image" layout="fill" objectFit="cover" quality={100} />
@@ -88,11 +88,7 @@ export default function Home() {
       <div className="hidden justify-center mx-auto mt-10 sm:flex">
         <Link href='/gallery' className="self-end px-5 whitespace-nowrap rounded-xl border-4 border transition-colors duration-300 sm:text-5xl md:text-6xl hover:border-4 hover:border-fuchsia-600 border-white/50">See More</Link>
       </div>
-
-      <section className="flex justify-center items-center mt-20 w-full">
-        <Footer />
-      </section>
-    </>
+    </div>
 
   );
 
