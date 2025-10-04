@@ -88,7 +88,7 @@ export default function RootLayout({
         <main>
             {children}
         </main>
-        <Footer color='default' />
+        <Footer color='#232323CC' />
       </body>
     </html>
   );
