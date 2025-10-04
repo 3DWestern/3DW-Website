@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Jersey_25 } from "next/font/google";
 import "./globals.css";
 import type { Viewport } from "next";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 // font definition 
 const jersey_25 = Jersey_25({
@@ -80,7 +82,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jersey_25.className}`}>
-        {children}
+        <div className="">
+          <Navbar />
+        </div>
+        <main>
+            {children}
+        </main>
+        <Footer color='default' />
       </body>
     </html>
   );
