@@ -80,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jersey_25.className}`}>
-             {children}
+        {children}
       </body>
     </html>
   );
